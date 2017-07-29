@@ -1,0 +1,52 @@
+.notification
+    border: 1px solid $c-primary
+    overflow: hidden
+    margin-bottom: 20px
+
+    h3
+        padding: 10px 0 10px 10px
+        font-family: $lato
+        font-size: 1.1rem
+        background-color: $c-primary
+        color: $white
+
+    .notification-info
+        padding: 10px
+
+        &:not(:last-child)
+            border-bottom: 1px solid $soft-grey
+
+        h4
+            font-size: 1rem
+            font-family: $open-s
+            margin-bottom: 5px
+
+            i
+                font-size: 0.9rem
+
+        p
+            font-size: 0.9rem
+
+            span
+                color: $soft-grey
+                font-size: 0.8rem
+
+        i
+            top: 10px
+            right: 10px
+            font-size: 1.1rem
+
+        .fa-check-circle
+            color: $success
+
+        .fa-exclamation-circle
+            color: tomato
+
+.empty
+    padding: 10px 0
+
+    p
+        font-size: 0.9rem
+
+.empty.border
+    border: 1px solid $c-primary

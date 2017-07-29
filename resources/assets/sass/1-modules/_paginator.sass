@@ -1,0 +1,18 @@
+.paginator
+    li
+        padding: 5px 10px
+        border: 1px solid $soft-grey
+
+        a
+            font-size: 0.9rem
+            color: $c-primary
+
+        &:first-child
+            margin-right: 5px
+
+    li.disabled
+        pointer-events: none
+        opacity: 0.5
+
+        a
+            cursor: initial

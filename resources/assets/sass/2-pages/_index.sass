@@ -1,0 +1,101 @@
+.index
+    header, footer
+        background-color: transparent
+        border-color: $white
+        color: $white
+
+        .footer-content
+            color: transparentize($white, 0.3)
+
+        .mobile
+            color: $white
+
+    nav a
+        color: $white
+
+    .link
+        color: $white
+
+    .social a
+        color: transparentize($white, 0.3)
+
+    .pp-section
+        width: 100vw
+
+    .pp-tableCell
+        width: 100vw
+
+    section
+        &:nth-child(1)
+            background: $black url('../img/city.jpeg') center center no-repeat fixed
+            background-size: cover
+
+        &:nth-child(2)
+            background-color: $dark-red
+
+        &:nth-child(3)
+            background-color: $light-blue
+
+        &:nth-child(4)
+            background-color: $green
+
+        &:nth-child(5)
+            background-color: $orange
+
+        &:not(:nth-child(1))
+            background-image: url('../img/45deg2.png')
+
+    .main-section
+        background-color: transparentize($black, 0.4)
+
+        h1, p
+            color: $white
+
+        p
+            font-size: 1.5rem
+            text-align: center
+            margin-bottom: 20px
+
+        .btn
+            font-size: 1.2rem
+            padding: 10px 20px
+    
+    .s-section
+        h2, p
+            color: $white
+            margin-bottom: 20px
+
+        h4
+            color: $white
+
+        .btn
+            padding: 5px 30px
+
+        .t-align:not(:last-child)
+            margin-right: 20px
+
+        input, textarea
+            border-color: transparent
+            transform: translate3d(0, 0, 0)
+
+            &:focus
+                border-color: $success
+
+        input.parsley-error, textarea.parsley-error
+            border-color: $orangered
+
+    #pp-nav ul
+        display: block
+
+    #pp-nav li .active span, .pp-slidesNav .active span
+        background-color: $white
+
+    .contact-form
+        a
+            color: $white
+            opacity: 0.5
+            font-size: inherit
+            font-family: inherit
+
+            &:hover
+                opacity: 1

@@ -1,0 +1,249 @@
+.userpage
+
+    nav
+        max-width: 600px
+
+        .link
+            font-size: 0.9rem
+
+    footer
+        position: fixed
+        box-shadow: 0px 500px 0px 500px $white
+
+    .sometimes
+        background-color: $white
+
+    .parsley-errors-list.filled
+        position: absolute
+        bottom: 5px
+        font-size: 0.8rem
+
+    .main-content
+        width: 55%
+
+    .main-section
+        border: 1px solid transparentize($soft-grey, 0.5)
+        border-top: 1px solid $c-primary
+        padding: 15px 12px 15px
+
+    h2
+        font-family: $open-s
+        font-size: 1.5rem
+        margin-bottom: 20px
+
+    input, select
+        margin-bottom: 20px
+        padding: 8px
+        border: 1px solid $input-alt
+
+    .divisor
+        padding: 10px 10px 0px
+        margin-bottom: 20px
+
+        p, span
+            font-size: 1rem
+            margin-bottom: 5px
+            margin-left: 5px
+
+    .select
+        margin-bottom: 20px
+
+    .topup-button
+        margin-top: 10px
+        padding-top: 10px
+
+    .w95
+        width: 95%
+
+    .currency
+        color: $yellow
+
+    .donated
+        border-right: 1px solid $black
+        padding-right: 10px
+        width: 15%
+
+        div
+            margin-bottom: 10px
+
+        p:first-child
+            font-size: 0.8rem
+
+        p:nth-child(2)
+            font-size: 1rem
+
+    .stars
+        margin-bottom: 20px
+        
+        p
+            font-size: 0.9rem
+
+    .star-info
+        p:first-child
+            font-size: 0.8rem
+
+            a
+                font-size: 0.8rem
+                font-family: $lato
+                color: $c-primary
+
+        p:last-child
+            font-size: 0.75rem
+            color: darken($soft-grey, 20%)
+
+    .badges
+        height: 350px
+        overflow: scroll
+
+    .redeem-toggle
+        margin-bottom: 10px
+        cursor: pointer
+
+    .expandable
+        border-top: 1px solid $soft-grey
+        border-bottom: 1px solid $soft-grey
+        margin-bottom: 20px
+
+    .prize-option
+        padding: 10px 20px 10px 0
+        align-items: center
+
+        &:not(:last-child)
+            border-bottom: 1px solid $soft-grey
+
+        h4
+            font-size: 0.9rem
+
+        p
+            font-size: 0.8rem
+            margin-top: 5px
+
+        .radio
+            display: none
+
+        .radio:checked + .prize-info
+            color: $light-blue
+
+    .quantity
+        padding: 10px 5px
+        justify-content: space-between
+        align-items: center
+
+        p
+            font-size: 0.9rem
+
+        input, button
+            margin: 0 10px 0 0
+            padding: 2px 5px
+            font-size: 0.8rem
+            width: 30px
+            text-align: center
+
+        button
+            margin: 0
+            width: auto
+            font-size: 0.8rem
+
+    .disable
+        opacity: 0.5
+
+    .wish-title
+        margin-bottom: 20px
+
+        span
+            background-color: $c-primary
+            font-size: 1rem
+            font-family: $open-s
+            color: $white
+            padding: 0 5px
+            margin-left: 10px
+            border-radius: 5px
+
+        h2
+            margin-bottom: 0px
+
+    .priority
+        margin-bottom: 20px
+        font-size: 1rem
+        color: $soft-grey
+        opacity: 0.8
+
+        p
+            font-size: inherit
+
+    .user-wishes
+        .owl-stage-outer
+            background-color: $white
+
+        .wish
+            box-shadow: none
+
+    .user-wishes > div.mw.item
+        display: none
+
+    .wishes
+        height: 531px
+
+    .ref-info
+        padding-bottom: 10px
+        //border-bottom: 1px solid $soft-grey
+
+    .ref p
+        font-size: 1rem
+
+    .ref-link
+        a
+            font-size: 0.9rem
+            color: transparentize($black, 0.3)
+            background-color: #ffff99
+            padding: 5px 10px
+            border-radius: 5px
+
+            &:hover
+                text-decoration: underline
+
+    .ref-count
+        padding: 5px 20px
+
+    .ref-table
+        margin-top: 10px
+        padding-bottom: 10px
+        border-bottom: 1px solid $soft-grey
+
+        td
+            padding: 5px 0
+
+        tr
+            border-spacing: 5px
+
+            &:not(:nth-child(2))
+                background-color: $d-bg
+
+            p
+                font-size: 0.9rem
+
+    .social-links
+        margin-top: 10px
+
+        &>div
+            border-radius: 50%
+            height: 30px
+            width: 30px
+
+        &>div:not(:last-child)
+            margin-right: 10px
+
+        .facebook
+            background-color: #3B5998
+
+        .vk
+            background-color: #507299
+
+        .twitter
+            background-color: #1DA1F2
+
+        a
+            color: $white
+
+    .empty
+        padding: 30px 0

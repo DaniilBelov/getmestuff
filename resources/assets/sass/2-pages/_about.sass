@@ -1,0 +1,98 @@
+.about
+    overflow: scroll
+
+    main
+        height: 100vh
+        width: 100%
+        overflow: hidden
+
+    .slides
+        top: 0%
+        position: fixed
+        width: 100%
+        height: 100%
+
+    section
+        color: $white
+        overflow: hidden
+        background-image: url('../img/45deg2.png')
+        overflow: hidden
+
+        &:not(:nth-child(1))
+            top: 100%
+
+        &:nth-child(1)
+            background-color: $c-primary
+
+        &:nth-child(2)
+            background-color: $dark-red
+
+        &:nth-child(3)
+            background-color: $green
+
+    h2
+        font-family: $open-s
+        font-size: 2rem
+        padding: 20px 0 30px
+
+    h3
+        font-size: 1.2rem
+        font-family: $open-s
+        margin-bottom: 5px
+
+    p
+        font-size: 0.85rem
+
+    .main-image
+        width: 700px
+        margin: 20px 0
+        height: auto
+        z-index: 1
+        align-self: center
+
+    .w45
+        width: 48%
+
+    .header
+        z-index: 1
+        margin-top: 10px
+
+        .circle
+            display: block
+            background-color: transparent
+            border: 5px solid $white
+            width: 20px
+            height: 20px
+            border-radius: 50%
+            left: 50%
+            margin-left: -10px
+            z-index: 0
+
+        .circle.above
+            top: 0px
+
+            &:before
+                content: ''
+                position: absolute
+                width: 2px
+                background-color: $white
+                height: 1000%
+                left: 50%
+                bottom: 100%
+                z-index: 2
+                margin-left: -1px
+
+
+        .circle.below
+            bottom: 0px
+
+            &:after
+                content: ''
+                position: absolute
+                width: 2px
+                background-color: $white
+                height: 10000%
+                left: 50%
+                top: 100%
+                z-index: 2
+                margin-left: -1px

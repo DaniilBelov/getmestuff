@@ -1,0 +1,426 @@
+@media only screen and (max-width: 1030px)
+    footer div.col-12, header div.col-12
+        margin: 0 20px
+
+    // Index
+    .index
+        #pp-nav
+            display: none
+
+        div.col-12:not(.header)
+            padding: 0px 20px
+
+    // About Page
+    .about
+        footer
+            position: static
+
+        main
+            height: auto
+            overflow: visible
+
+        .slides
+            position: static
+            width: 100%
+
+        section
+            // overflow: visible
+            position: static
+            width: 100%
+            height: auto
+
+            &:first-child
+                padding-bottom: 20px
+
+                .inner
+                    padding: 70px 0 0
+
+            // &:not(:first-child) .inner
+            //     padding: 20px 0px
+
+            &:not(:first-child)
+                padding: 20px 0 40px
+
+                .inner
+                    padding: 0
+
+        .inner
+            height: 100%
+    
+    // Userpage
+    .userpage
+        main
+            padding-right: 20px
+            padding-left: 20px
+
+    // Notifications
+    .notifications
+        main
+            padding-right: 20px
+            padding-left: 20px
+
+    // Current Wishes Page
+    .current-wishes
+        main
+            padding-left: 10px
+            padding-right: 10px
+
+@media only screen and (max-width: 770px)
+    \:root
+        font-size: 15px
+
+    footer .footer-content
+        max-width: 400px
+        flex-wrap: wrap
+        justify-content: flex-start
+
+    header .header nav
+        max-width: 450px
+
+    // Index
+    .index
+        .stories-wrapper
+            width: 80%
+
+    // About
+    .about
+        img:not(.logo)
+            width: 100%
+            margin: 10px 0
+
+        .header 
+            margin-bottom: 20px
+
+            h2
+                padding: 0
+            
+            .circle.above
+                display: none
+
+                &:before
+                    display: none
+
+            .circle.below
+                display: none
+
+                &:after
+                    display: none
+
+        .w45.self-start, .w45.self-end
+            width: 100%
+
+    // Login Page
+    .login
+        .forgot-form
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            box-shadow: none
+
+            .arrow
+                display: none
+
+    // Userpage
+    .userpage
+        .main-content
+            width: 100%
+
+        .wishes
+            width: 100%
+
+        .wish
+            margin: 0 auto
+            width: 80%
+
+    // Notifications
+    .notifications
+        .notifications-wrapper
+            flex-direction: column
+            justify-content: center
+
+            >div
+                width: 100%
+
+                &:first-child
+                    margin-bottom: 20px
+
+    // Current Wishes Page
+    .current-wishes
+        section.wrap
+            justify-content: space-around
+
+@media only screen and (max-width: 740px)
+    // Index
+    .index
+        section div.col-12:not(.vertical):not(.stories)
+            flex-direction: column
+            padding: 100px 20px 50px
+
+            div
+                width: 100%
+
+        img:not(.logo)
+            width: 300px
+            height: 300px
+
+@media only screen and (max-width: 670px)
+    // Login Page
+    .login
+        section
+            border-radius: 0px
+            border-right: 0px
+            border-left: 0px
+
+    // Notifications
+    .contact
+        .social-widgets
+            display: none
+
+        .contact-form
+            width: 100%
+            margin-right: 0
+
+    // Current Wishes Page
+    .current-wishes
+        section.wrap
+            justify-content: space-between
+
+        .wish
+            width: 320px
+            box-shadow: none
+
+@media only screen and (max-width: 570px)
+    \:root
+        font-size: 14px
+
+    header .mobile
+        display: block
+
+    nav.mw
+        position: fixed
+        top: 0px
+        bottom: 0px
+        right: 0px
+        background-color: transparentize($black, 0.3)
+        color: $white
+        width: auto
+        padding: 70px 10px 0px
+        transform: translateX(100%)
+
+        ul
+            flex-direction: column
+            justify-content: flex-start
+            align-items: stretch
+
+            li
+                border-bottom: 1px solid transparentize($white, 0.3)
+                padding: 5px 10px 0 0
+                min-width: 100px
+
+    nav.mw.showNav
+        transform: translateX(0%)
+
+    nav
+        .link
+            color: $white
+
+        a:not(.active)
+            color: $white
+
+    .social
+        width: 150px
+
+    // Index
+    .index
+        .contact-form
+            flex-direction: column
+
+            .w5
+                width: 100%
+
+            p, form
+                width: 100%
+
+    // Current Wishes Page
+    .current-wishes
+        section.wrap
+            justify-content: space-around
+
+        .wish
+            width: 350px
+
+    // Terms
+    .terms 
+        .main-content
+            width: 90%
+
+@media only screen and (max-width: 420px)
+    footer
+        div.col-12
+            flex-direction: column
+            align-items: center
+            justify-content: center
+
+        .footer-content
+            width: 100%
+            justify-content: center
+
+    .social
+        width: 200px
+
+    // Index
+    .index
+        img:not(.logo)
+            width: 280px
+            height: 280px
+
+        .contact-form
+            .w4
+                width: 100%
+
+    // About Page
+    .about
+        .text
+            width: 90%
+
+        section:not(:first-child)
+            padding: 0 0 40px
+
+    // Login Page
+    .login
+        section
+            padding: 20px 10px
+
+    // Userpage
+    .userpage
+        main
+            padding-right: 0px
+            padding-left: 0px
+
+        .wish
+            width: 90%
+
+        .tabs
+            font-size: 1.5rem
+
+            i
+                display: block
+
+            span
+                display: none
+
+        .main-content section.achievements > div
+            flex-direction: column
+            justify-content: center
+            align-items: center
+
+            .donated, .achievements-info
+                width: 100%
+
+        .donated
+            border-right: none
+            border-bottom: 1px solid $black
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-bottom: 20px
+
+            div:first-child
+                margin-right: 50px
+
+        .ref-info
+            flex-direction: column
+
+            >div
+                width: 80%
+
+                &:first-child
+                    margin-bottom: 10px
+
+        .tabs li
+            font-size: 1.2rem
+
+        .empty  p
+            width: 80%
+            text-align: center
+
+        .wish-title-wrapper
+            flex-wrap: wrap
+
+        .wish-title
+            width: 100%
+            justify-content: flex-start
+
+        .small-input-wrapper
+            flex-direction: column
+            justify-content: center
+
+            >div
+                width: 100%
+
+    // Terms
+    .terms 
+        .main-content
+            width: 100%
+
+
+@media only screen and (max-width: 380px)
+    footer div.col-12, header div.col-12
+        margin: 0 5px
+
+    // Login Page
+    .login
+        section
+            padding: 20px 0px
+
+        .form
+            padding: 0px 10px
+
+        .forgot
+            right: 10px
+
+    // Userpage
+    .userpage
+        .wish
+            width: 100%
+
+    // Notifications
+    .contact
+        .contact-form
+            padding: 20px 10px
+
+    // Notifications
+    .notifications
+        main
+            padding-left: 5px
+            padding-right: 5px
+
+@media only screen and (max-width: 320px)
+    footer
+        .copyright
+            text-align: center
+
+    // Login Page
+    .login
+        .top-row
+            flex-direction: column
+
+            div
+                width: 100%
+                margin: 0
+            
+    // Userpage
+    .userpage
+        .main-section
+            padding: 15px 5px
+
+    // Current Wishes Page
+    .current-wishes
+        main
+            padding-left: 0px
+            padding-right: 0px
+
+        .wish
+            width: 100%
+            border-right: none
+            border-left: none

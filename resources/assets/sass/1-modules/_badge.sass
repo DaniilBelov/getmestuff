@@ -1,0 +1,47 @@
+.badge
+    position: relative
+    display: flex
+    margin-bottom: 10px
+    border-bottom: 1px solid transparentize($soft-grey, 0.5);
+    padding-bottom: 10px
+
+    .radial-wrapper
+        width: 65px
+        height: 65px
+
+    svg
+        background-color: transparent
+        border-radius: 50%
+        transform: rotate(90deg) rotateY(180deg)
+        z-index: 10
+
+    circle
+        fill: transparent
+        stroke: transparentize($white, 0.3)
+        stroke-width: 32.5
+        stroke-dasharray: 103 103
+        transition: stroke-dasharray 1s ease 0.5s
+
+    img
+        width: 65px
+        height: 65px
+
+    .badge-info
+        margin-left: 10px
+
+    .badge-title
+        font-size: 0.7rem
+
+    .tool-tip
+        h4
+            font-size: 0.8rem
+            margin-bottom: 5px
+
+        p
+            font-size: 0.8rem
+
+    .completed
+        top: 10px
+        right: 0px
+        font-size: 1.5rem
+        color: $success

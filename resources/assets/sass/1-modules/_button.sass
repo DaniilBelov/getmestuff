@@ -1,0 +1,27 @@
+button,
+.btn
+    justify-content: center
+    align-items: center
+    color: $white
+    background-color: $c-primary
+    transition: 500ms
+    padding: 5px 20px
+    font-size: 1.15rem
+    font-family: $open-s
+
+    i
+        color: $black
+        top: 30%
+        right: 40%
+        transform: translateY(-50%)
+        position: absolute
+
+    &:hover
+        background-color: $c-hover
+
+    &:disabled
+        background-color: transparentize($c-primary, 0.7)
+        cursor: initial
+
+        &:hover
+            background-color: transparentize($c-primary, 0.7)

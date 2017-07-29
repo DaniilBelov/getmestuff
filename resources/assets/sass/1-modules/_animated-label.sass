@@ -1,0 +1,19 @@
+.animated
+    position: absolute
+    left: 10px
+    top: 10px
+    font-family: $lato
+    font-weight: 300
+    font-size: 1.2rem
+    color: #777
+    pointer-events: none
+    will-change: left, top
+    // -webkit-transform: translateZ(0)
+    transition: all 150ms ease-out
+
+input:focus ~ label.animated, input.hasvalue ~ label.animated
+    color: #00c1a3
+    font-size: 0.8em
+    transform: translate3d(0,0,0)
+    top: -15px
+    left: 0px

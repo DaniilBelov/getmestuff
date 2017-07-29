@@ -1,0 +1,28 @@
+.dropdown
+    font-size: 0.9rem
+    position: relative
+    cursor: pointer
+    margin-bottom: 20px
+    padding: 8px
+    border: 1px solid $input-alt
+    font-family: $lato
+
+    div
+        position: absolute
+        display: flex
+        flex-direction: column
+        width: 100%
+        top: 100%
+        left: 0
+        border: 1px solid $c-primary
+        height: auto
+        box-shadow: 2px 4px 20px rgba(19, 35, 47, 0.3)
+        z-index: 100
+
+        p
+            padding: 10px
+            background-color: $white
+
+            &:hover
+                color: $white
+                background-color: $c-primary

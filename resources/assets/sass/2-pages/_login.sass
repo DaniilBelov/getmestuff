@@ -1,0 +1,144 @@
+.login
+    background-color: $main-bg
+
+    footer
+        position: relative
+        box-shadow: 0px 500px 0px 500px $white
+
+    .parsley-errors-list.filled
+        position: absolute
+        font-size: 0.8rem
+
+    .parsley-errors-list.filled:not(:last-child)
+        bottom: 15px
+
+    .parsley-errors-list.filled:last-child
+        bottom: 0
+
+    main
+        padding: 70px 0px 0px
+
+    section
+        max-width: 680px
+        width: 100%
+        background-color: $white
+        margin: 40px auto
+        padding: 40px
+        border: 1px solid transparentize($black, 0.6)
+
+    .tabs
+        margin-bottom: 40px
+
+    h1
+        text-align: center
+        font-size: 1.8rem
+        margin-bottom: 20px
+
+    .w45
+        width: 48%
+
+    .top-row div:first-child
+        margin-right: 4%
+
+    input:not([type=checkbox])
+        margin-bottom: 30px
+        font-size: 1.2rem
+        padding: 10px
+        border-color: #A0B3B0
+
+        &:focus
+            border-color: #A0B3B0
+
+    .checkbox
+        margin-bottom: 15px
+
+    .checkbox-login
+        margin-bottom: 5px
+
+    input.parsley-error
+        border-color: $orangered
+
+    .terms
+        span, a
+            font-family: $lato
+
+        a
+            margin-left: 5px
+            color: $black
+            opacity: 0.5
+
+            &:hover
+                opacity: 1
+
+        input
+            margin-right: 5px
+
+    button
+        padding: 15px 0px
+        font-size: 1.5rem
+        letter-spacing: 0.1rem
+
+    .forgot
+        cursor: pointer
+
+        .hover:hover
+            color: $success 
+            
+        p
+            font-size: 1rem
+
+    .overlay
+        display: block
+        top: 0
+        left: 0
+        background-color: transparentize($white, 0.3)
+
+    .forgot-form
+        background-color: $white
+        padding: 15px
+        border: 1px solid #7a7a7a
+        cursor: initial
+        z-index: 200
+        top: 40%
+        left: 33%
+
+        .pas-wrapper
+            overflow: hidden
+            width: 200px
+            transition: height 200ms ease-in-out
+
+        label, input, button
+            font-size: 0.8rem
+        
+        input, button
+            padding: 3px
+            height: 25px
+
+        input
+            width: 70%
+            margin: 0
+
+        button
+            width: 30%
+
+        label
+            font-family: $lato
+
+        .done
+            i
+                color: $success
+                font-size: 1.3rem
+
+            p
+                text-align: center
+                font-size: 1rem
+
+    .close
+        top: 5px
+        right: 10px
+        color: $soft-grey
+        opacity: 0.7
+        cursor: pointer
+
+        &:hover
+            opacity: 1

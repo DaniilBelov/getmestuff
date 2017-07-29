@@ -1,0 +1,60 @@
+header
+    z-index: 1000
+    height: 70px
+    background-color: $white
+    position: fixed
+    color: $black
+    border-bottom: 1px solid $black
+
+    .logo
+        width: 100px
+        height: auto
+
+        svg
+            width: inherit
+            height: auto
+            fill: $white
+
+    .mobile
+        cursor: pointer
+        display: none
+        font-size: 1.25rem
+        position: relative
+        z-index: 1000
+        transition: all 200ms ease-in-out
+
+    .mobile.active
+        color: $white
+
+nav
+    max-width: 585px
+    z-index: 999
+    transition: all 200ms ease-in-out
+
+    i
+        color: $black
+
+    .user-link
+        color: $black
+        font-size: 1rem
+
+        &:hover
+            opacity: 0.5
+
+    .notification-link  a
+        margin-right: 5px
+
+    .unread
+        height: 1rem
+        width: 1rem
+        border-radius: 5px
+        background-color: #ff5555
+        font-size: 0.8rem
+        font-family: $lato
+        color: $white
+
+    a
+        color: $black
+
+    a.active
+        color: #0000ff

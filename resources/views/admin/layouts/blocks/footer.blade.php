@@ -1,0 +1,1 @@
+<footer class="footer text-center">GetMeStuff &copy; 2017</footer>

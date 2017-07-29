@@ -1,0 +1,53 @@
+.alert
+    position: fixed
+    top: 90px
+    right: 20px
+    padding: 0.75rem 1.25rem
+    display: flex
+    align-items: flex-start
+    flex-direction: column
+    z-index: 1000
+    font-family: $merw
+    border: 1px solid transparent
+    font-size: 0.9rem
+
+    strong
+        margin-bottom: 5px
+        font-family: $open-s
+        font-weight: 600
+        text-transform: capitalize
+
+    ul
+        display: block
+        margin-left: 20px
+
+        li
+            list-style: initial
+            margin-bottom: 2px
+            font-family: $open-s
+            font-size: 0.9rem
+
+    .close
+        top: 5px
+        right: 10px
+        font-size: 1.2rem
+        opacity: 0.5
+        font-family: $merw
+        font-weight: 700
+
+        &:hover
+            opacity: 1
+
+.alert.dismissible
+    padding-right: 35px
+
+.alert.success
+    background-color: darken(#dff0d8, 5%)
+    border-color: #3c763d
+    color: #3c763d
+
+.alert.error
+    background-color: darken(#f2dede, 5%)
+    border-color: #a94442
+    color: #a94442
+    padding-right: 35px
