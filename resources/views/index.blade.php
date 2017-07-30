@@ -11,14 +11,14 @@
         </section>
         <section class="section main">
             <div class="col-12 mw mh flex between m-auto s-section">
-                <img src="http://placehold.it/350x350">
+                <img src="{{ asset('images/index/how.png') }}">
                 @include("content.$lang.index.how")
             </div>
         </section>
         <section class="section main">
             <div class="col-12 mw mh flex between m-auto s-section">
                 @include("content.$lang.index.who")
-                <img src="http://placehold.it/350x350">
+                <img src="{{ asset('images/index/who.png') }}">
             </div>
         </section>
         <section class="section main">

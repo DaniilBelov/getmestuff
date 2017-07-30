@@ -1,5 +1,5 @@
 <div class="flex center vertical pos-a pos-center w8 text-wrapper">
-    <h1>GetMeStuff</h1>
+    <img class="big-logo mw m-auto" src="{{ asset('images/index/logo2.png') }}">
     <div class="owl-theme owl-carousel">
         <div class="item">
             <p class="mw t-align">Helping accomplish your goals.</p>

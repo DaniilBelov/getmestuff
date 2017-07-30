@@ -40,6 +40,7 @@ class Message extends Mailable
     public function build()
     {
         return $this->view("email.{$this->locale}.reply")
-                    ->subject($this->subject);
+                    ->subject($this->subject)
+                    ->from('support@getmestuff.net', 'GetMeStuff');
     }
 }

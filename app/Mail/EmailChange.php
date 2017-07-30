@@ -34,7 +34,10 @@ class EmailChange extends Mailable
      */
     public function build()
     {
+        if ($this->locale == 'ru') $subject = 'GetMeStuff | Подтверждение изменения электронной почты';
+        else $subject = 'GetMeStuff | Verify New Email Address';
+
         return $this->view("email.{$this->locale}.change_email")
-                    ->subject('Confirm Email Change');
+                    ->subject($subject);
     }
 }

@@ -33,7 +33,10 @@ class EmailConfirmation extends Mailable
      */
     public function build()
     {
+        if ($this->lang == 'ru') $subject = 'GetMeStuff | Подтверждение Электронной Почты';
+        else $subject = 'GetMeStuff | Email Verification';
+
         return $this->view("email.{$this->lang}.verify")
-                    ->subject('Email Confirmation');
+                    ->subject($subject);
     }
 }

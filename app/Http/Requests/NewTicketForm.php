@@ -27,7 +27,7 @@ class NewTicketForm extends FormRequest
         return [
             'email' => 'required|email',
             'subject' => 'required|string|spamfree',
-            'organisation' => 'nullable|string|spamfree'
+            'organisation' => 'nullable|string|spamfree',
             'body' => 'required|spamfree'
         ];
     }

@@ -21,7 +21,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('test');;
     }
 
     /**
@@ -103,13 +103,9 @@ class HomeController extends Controller
 
     public function test()
     {
-        $test = ['iPhone', 'iPad'];
-        $value = 'iphone';
-
-        $matches = preg_grep("/^$value$/i", $test)[0];
-
-        $value = $matches;
-
-        dd($value);
+        \Mail::raw('Test Text', function ($message){
+            $message->to('getmestuff.business@gmail.com');
+            $message->subject('GetMeStuff | Email Test');
+        });
     }
 }

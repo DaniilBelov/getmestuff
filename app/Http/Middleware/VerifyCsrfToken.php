@@ -12,6 +12,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        'ru/interkassa/*'
+        'ru/interkassa/*',
+        'ru/mailgun/*'
     ];
 }
