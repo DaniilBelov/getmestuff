@@ -39631,7 +39631,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             id: this.data.id,
             amount: '',
-            current: this.data.current_amount,
+            current: this.data.current_amount.toFixed(2),
             needed: this.data.amount_needed,
             buffering: false
         };

@@ -20,8 +20,17 @@
     <body class="overflow-visible">
         <div id="app">
             <main class="main flex center vertical">
-                <h1>GetMeStuff</h1>
-                @include("content.$lang.construction.message")
+                <img src="{{ asset('images/logo-white2.png') }}" alt="GetMeStuff">
+                @if ($lang == 'ru')
+                    <p class="w8 t-align">
+                        Здравствуйте, в данный момент мы дорабатываем сайт. Скоро будем с Вами.
+                    </p>
+                @else
+                    <p class="w8 t-align">
+                        Hello, we a currently finishing up. We will be with you shortly.
+                    </p>
+                @endif
+                {{-- @include("content.$lang.construction.message") --}}
             </main>
             <flash :message="{{ json_encode([session('message')]) }}"></flash>
         </div>
