@@ -20,7 +20,9 @@
     <body class="overflow-visible">
         <div id="app">
             <main class="main flex center vertical">
-                <img class="m-auto" src="{{ asset('images/logo-white2.png') }}" alt="GetMeStuff">
+                <div class="construction-logo m-auto">
+                    <img class="mw" src="{{ asset('images/logo-white2.png') }}" alt="GetMeStuff">
+                </div>
                 @if ($lang == 'ru')
                     <p class="w8 t-align">
                         Здравствуйте, в данный момент мы дорабатываем сайт. Скоро будем с Вами.
