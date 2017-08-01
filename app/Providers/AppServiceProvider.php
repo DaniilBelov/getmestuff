@@ -27,7 +27,6 @@ class AppServiceProvider extends ServiceProvider
         ], function ($view) {
             $country = new Country();
             $country->setCountry();
-//            $view->with('refresh', \App\User::lastOnline());
         });
 
         view()->composer('*', function ($view) {

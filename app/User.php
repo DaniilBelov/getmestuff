@@ -8,11 +8,10 @@ use App\Traits\UserActions;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable, UserActions, UserAchievements, HasApiTokens;
+    use Notifiable, UserActions, UserAchievements;
 
     public static function boot()
     {
@@ -31,7 +30,7 @@ class User extends Authenticatable
                 $user->save();
             }
 
-//            Country::updateCountry($user->id);
+           // Country::updateCountry($user->id);
         });
     }
 
