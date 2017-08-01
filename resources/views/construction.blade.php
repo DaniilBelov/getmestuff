@@ -29,7 +29,7 @@
                     </p>
                 @else
                     <p class="w8 t-align">
-                        Hello, we a currently finishing up. We will be with you shortly.
+                        Hello, we are currently finishing up. We will be with you shortly.
                     </p>
                 @endif
                 {{-- @include("content.$lang.construction.message") --}}
