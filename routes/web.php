@@ -214,7 +214,7 @@ Route::middleware(['auth', 'admin', 'ajax'])->namespace('Admin')->prefix('admin/
     $this->get('/countries/visits', 'CountriesController@visits');
 });
 
-Route::post('/tickets/new')->middleware('ajax');
+Route::post('/tickets/new', 'TicketsController@store')->middleware('ajax');
 
 Route::post('/interkassa/payment', 'PurchasesController@interkassa');
 Route::post('/mailgun/aASDkasxs6232b1e', 'TicketsController@mailgun');

@@ -7,9 +7,6 @@
             <input type="text" v-model="subject" name="subject" :placeholder="$t('subject')" required>
         </div>
         <div class="mw input-wrapper pos-r">
-            <input type="text" v-model="organisation" name="organisation" :placeholder="$t('org')">
-        </div>
-        <div class="mw input-wrapper pos-r">
             <textarea name="message" v-model="body" :placeholder="$t('message')" required></textarea>
         </div>
         <button :disabled="buffering" @click.prevent="send" type="submit" class="pos-r">
@@ -24,7 +21,6 @@
             return {
                 email: '',
                 subject: '',
-                organisation: '',
                 body: '',
                 buffering: false,
             }

@@ -37794,16 +37794,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             email: '',
             subject: '',
-            organisation: '',
             body: '',
             buffering: false
         };
@@ -65412,29 +65408,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.subject = $event.target.value
-      }
-    }
-  })]), _vm._v(" "), _c('div', {
-    staticClass: "mw input-wrapper pos-r"
-  }, [_c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.organisation),
-      expression: "organisation"
-    }],
-    attrs: {
-      "type": "text",
-      "name": "organisation",
-      "placeholder": _vm.$t('org')
-    },
-    domProps: {
-      "value": (_vm.organisation)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.organisation = $event.target.value
       }
     }
   })]), _vm._v(" "), _c('div', {

@@ -27,14 +27,13 @@ class NewTicketForm extends FormRequest
         return [
             'email' => 'required|email',
             'subject' => 'required|string|spamfree',
-            'organisation' => 'nullable|string|spamfree',
             'body' => 'required|spamfree'
         ];
     }
 
     public function save()
     {
-        $data = $this->intersect(['email', 'subject', 'organisation', 'body']);
+        $data = $this->intersect(['email', 'subject', 'body']);
         $data['locale'] = app()->getLocale();
         $data['unique_id'] = getRandomString();
 
