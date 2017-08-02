@@ -8,7 +8,7 @@
             <p class="mw">Our mission is to help you achieve your dreams</p>
         </div>
         <div class="item t-align">
-            <p class="mw">We believe in the world where people achieve great things as a result of working together</p>
+            <p class="mw">People can achieve greate things by working together</p>
         </div>
     </div>
     <a class="btn" href="/register">Sign Up</a>

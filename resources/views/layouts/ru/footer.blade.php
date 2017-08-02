@@ -1,5 +1,5 @@
 <footer class="mw flex around">
-    <div class='col-12 mw mh flex between'>
+    <div class='col-12 mw mh flex between footer'>
         <div class="footer-content flex center">
             <a target="_blank" href="/{{ $lang }}/terms">Условия использования</a>
             <span role="presentation" aria-hidden="true"> · </span>

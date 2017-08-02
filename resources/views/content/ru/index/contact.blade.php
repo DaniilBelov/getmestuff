@@ -1,4 +1,4 @@
-<h2 class="self-start">Свяжитесь с нами</h2>
+<h2 class="self-start">Обратная связь</h2>
 <div class="mw flex s-between contact-form">
     <p class="w4">Мы бы хотели услашть о ваших проблемах и предложениях.</p>
     <div class="w5">

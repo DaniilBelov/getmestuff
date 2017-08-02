@@ -7,7 +7,7 @@
         #pp-nav
             display: none
 
-        div.col-12:not(.header)
+        div.col-12:not(.header):not(.footer)
             padding: 0px 20px
 
     // About Page
@@ -159,7 +159,7 @@
             div
                 width: 100%
 
-        img:not(.logo)
+        img:not(.logo):not(.big-logo)
             width: 300px
             height: 300px
 
@@ -270,10 +270,6 @@
 
     // Index
     .index
-        img:not(.logo)
-            width: 280px
-            height: 280px
-
         .contact-form
             .w4
                 width: 100%
@@ -388,6 +384,12 @@
         .forgot
             right: 10px
 
+    // Index
+    .index
+        img:not(.logo):not(.big-logo)
+            width: 250px
+            height: auto
+
     // Userpage
     .userpage
         .wish
@@ -411,8 +413,14 @@
 
 @media only screen and (max-width: 320px)
     footer
-        .copyright
-            text-align: center
+        div.col-12
+           // padding: 0
+
+    // Index
+    .index
+        img:not(.logo):not(.big-logo)
+            width: 180px
+            height: auto
 
     // Login Page
     .login

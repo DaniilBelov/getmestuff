@@ -27,7 +27,7 @@
             </div>
             <div class="mw pos-r">
                 <label class="terms flex start-center checkbox">
-                    <input type="checkbox" name="terms" required> <span class="flex center">Принять <a class="no-select" target="_blank" href="/{{ $lang }}/terms">eсловия использования</a></span>
+                    <input type="checkbox" name="terms" required> <span class="flex center">Принять <a class="no-select" target="_blank" href="/{{ $lang }}/terms">Условия использования</a></span>
                 </label>
             </div>
             <div class="flex vertical center mw">
