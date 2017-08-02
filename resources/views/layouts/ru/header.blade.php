@@ -2,9 +2,9 @@
     <header class="around mw">
         <div class="col-12 mh flex between mw header">
             @if(request()->path() == app()->getLocale())
-                <img class="logo" src="{{ asset('images/logo-white.png') }}">
+                <img class="logo" src="{{ asset('images/logo-white2.png') }}">
             @else
-                <img class="logo" src="{{ asset('images/logo-black.png') }}">
+                <img class="logo" src="{{ asset('images/sign.png') }}">
             @endif
             <p @click="toggle()" :class="{ active : show }" class="mobile"><i class="fa fa-bars" aria-hidden="true"></i></p>
             <nav :class="{ showNav : show }" class="mw">
