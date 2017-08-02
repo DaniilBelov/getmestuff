@@ -1,4 +1,4 @@
-<div data-1100="top: -200px;" data-1200="top: 10px;" class="flex center header pos-r">
+<div data-1100="top: -200px;" data-1200="top: 10px;" class="flex center slide-header pos-r">
     <div class="circle above pos-a"></div>
     <h2>Разработка</h2>
     <div class="circle below pos-a"></div>

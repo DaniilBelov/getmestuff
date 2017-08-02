@@ -1,4 +1,4 @@
-<div class="flex center header pos-r">
+<div class="flex center slide-header pos-r">
     <div class="circle above pos-a"></div>
     <h2>Идея</h2>
     <div class="circle below pos-a"></div>

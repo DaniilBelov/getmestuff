@@ -13,7 +13,7 @@
                         <li><a class="link" href="/{{ $lang }}">Главная</a></li>
                         <li><a class="link" href="/{{ $lang }}/about">О нас</a></li>
                         <li><a class="link" href="/{{ $lang }}/login">Войти</a></li>
-                        <li><a class="link" href="/{{ $lang }}/register">Зарегестрироваться</a></li>
+                        <li><a class="link" href="/{{ $lang }}/register">Зарег.</a></li>
                         <li><a href="/lang/en" class="{{ ($lang == 'en') ? 'active' : '' }}">EN</a> | <a href="/lang/ru" class="{{ ($lang == 'ru') ? 'active' : '' }}">РУ</a></li>
                     @else
                         <li><a class="link" href="/{{ $lang }}/home">Профиль</a></li>

@@ -11,7 +11,7 @@
                     <animated name="password" id="loginpass" trigger="change" type="password">Пароль</animated>
                 </div>
             </div>
-            <div class="mw flex between">
+            <div class="mw flex between login-etc">
                 <label class="terms flex start-center checkbox-login checkbox">
                     <input type="checkbox" name="remember" checked> <span class="flex center">Оставаться в системе</span>
                 </label>
