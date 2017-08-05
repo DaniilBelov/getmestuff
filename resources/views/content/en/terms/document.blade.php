@@ -114,13 +114,13 @@
                     <p>Pledge a wish from an offered list with any desirable amount, not lower than US$0.01. By sending a pledge you confirm that this is solely your choice and you are not proceeding to this action if under pressure or any type of threat from somebody else.</p>
                 </li>
                 <li>
-                    <p>Publish a wish of your choice to get pledges for. Any of the wishes that you publish must fully comply with <a href="/{{ $lang }}/rules" target="_blank">rules</a>. If any of your wishes violate the rules and don’t fully comply with the requirements, the Administration of the website has a full authority to proceed to any of the appropriate to the case actions described in [cl. 6, 5].</p>
+                    <p>Publish a wish of your choice to get pledges for. Any of the wishes that you publish must fully comply with the <a href="/{{ $lang }}/rules" target="_blank">rules</a>. If any of your wishes violate the rules and don’t fully comply with the requirements, the Administration of the website has a full authority to proceed to any of the appropriate to the case actions described in [cl. 6, 5].</p>
                 </li>
                 <li>
                     <p>Delete a wish without pledges being transferred to another wish. Pledges lost due to the removal of the wish will by annihilated and will not be refunded to neither side (sender and receiver).</p>
                 </li>
                 <li>
-                    <p>Request to change title, purpose, amount of pledges needed and postal address (if applicable) of the existing wish without losing any existing donations made to the wish. In order to request the change of the wish, the user need to contact the customer service team via support@getmestuff.net and explain the reasoning behind the need of editing the wish. Please note, that the administration has full authority to accept or decline the request if it doesn’t fully comply with <a href="/{{ $lang }}/rules" target="_blank">rules</a></p>
+                    <p>Request to change title, purpose, amount of pledges needed and postal address (if applicable) of the existing wish without losing any existing donations made to the wish. In order to request the change of the wish, the user need to contact the customer service team via support@getmestuff.net and explain the reasoning behind the need of editing the wish. Please note, that the administration has full authority to accept or decline the request if it doesn’t fully comply with the <a href="/{{ $lang }}/rules" target="_blank">rules</a></p>
                 </li>
                 <li>
                     <p>Permanently terminate the account by sending a request to <a href="mailto:support@getmestuff.net">support@getmestuff.net</a></p>
@@ -236,7 +236,7 @@
                 <p>Any individual found promoting GetMeStuff without or against the conditions of the user promoting license will have to explain such actions to the Administration and will be required to remove any promotional material, if asked by the Administration. If the account of this individual can be traced, it may be blocked at the discretion of the Administration.</p>
             </li>
             <li>
-                <p>Any user found to publish a wish that is against the rules (can be accessed here <a href="/{{ $lang }}/rules" target="_blank">rules</a>) will have the wish removed and the user’s account blocked temporarily or permanently, at the discretion of the administration.</p>
+                <p>Any user found to publish a wish that is against the rules (can be accessed <a href="/{{ $lang }}/rules" target="_blank">here</a>) will have the wish removed and the user’s account blocked temporarily or permanently, at the discretion of the administration.</p>
             </li>
             <li>
                 <p>Copying or creating a website which serves similar purpose to https://getmestuff.net is not allowed. The website’s materials are protected by the copyright. Legal actions will be initiated towards the individual who is found doing so. Consequences are to follow in accordance to the decision of the court.</p>
