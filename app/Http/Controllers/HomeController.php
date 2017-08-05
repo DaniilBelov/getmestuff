@@ -103,9 +103,6 @@ class HomeController extends Controller
 
     public function test()
     {
-        \Mail::raw('Test Text', function ($message){
-            $message->to('getmestuff.business@gmail.com');
-            $message->subject('GetMeStuff | Email Test');
-        });
+        
     }
 }

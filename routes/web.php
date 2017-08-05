@@ -223,6 +223,4 @@ Route::get('/construction', function () {
     return view('construction');
 })->middleware('only-construction');
 
-Route::get('/test', function () {
-    return view('test');
-});
+Route::get('/test', 'HomeController@test');
