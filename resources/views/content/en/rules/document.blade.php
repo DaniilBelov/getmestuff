@@ -2,7 +2,7 @@
 <div class="text">
     <section class="section1 vertical">
         <h4>Publishing a Wish</h4>
-        <p>A wish may contain only alphanumerical characters (letters, digits and spaces) and may not be shorter than 1 word or longer than 5 words.</p>
+        <p>A wish may contain only alphanumerical characters (letters, digits and spaces) and may not be shorter than one word or longer than five words.</p>
         <p>Any swear words are not allowed to be used anywhere on the website and official social media pages.</p>
         <p>A wish cannot contain any promotional information.</p>
         <p>A wish must be a purchasable product or service, you may not convert pledges to money directly.</p>
@@ -21,14 +21,14 @@
             <li><p>Alcohol and tobacco products</p></li>
             <li><p>Any products or services that require legal adulthood (even if you are legally an adult)</p></li>
             <li><p>Weapons and explosives</p></li>
-            <li><p>Supporting any kind of groups</p></li>
+            <li><p>Financial support for any kind of groups</p></li>
         </ul>
         <p>A wish can be removed by user without transferring any of the pledges to another wish.</p>
-        <p>A wish’s information may not be edited once any amount of pledges received. To change the information, send request to the customer support here [[link]]. The request may or may not be approved, at the discretion of the administration. The administration does not have to explain reasons in case the request is declined.</p>
+        <p>A wish’s information may not be edited once any amount of pledges was received. To change the information, send a request to the customer support team. The request may or may not be approved, at the discretion of the Administration. The Administration does not have to explain reasons, regardless of the decision.</p>
     </section>
     <section class="section2 vertical">
         <h4>Delivery of Product for a Fully Pledged Wish</h4>
-        <p>Once your wish gets fully pledged, meaning received the full amount, customer support team will check the wish has followed all the rules and requirements, in case no violations were found, they will contact you to confirm the delivery address and other details that might be needed for the delivery and then initiate the delivery.</p>
+        <p>Once your wish gets fully pledged, meaning received the full amount, customer support team will check if the wish has followed all the rules and requirements, in case if no violations were found, they will contact you to confirm the delivery address and other details that might be needed for the delivery and then initiate the delivery.</p>
         <p>When the team contacts you regarding the delivery, one of the following things may happen:</p>
         <ul class="list disc">
             <li>
@@ -38,7 +38,7 @@
                 <p>The amount of pledges received is not enough for purchasing and/or delivering the product/service. In this case you will be given two options:</p>
                 <ul class="list circle">
                     <li>
-                        <p>You may choose to pay the missing amount by yourself, in which case you will receive all the needed instructions and an invoice.</p>
+                        <p>You may choose to pay the missing amount yourself, in which case you will receive all the needed instructions and an invoice.</p>
                     </li>
                     <li>
                         <p>You may choose to increase the number of pledges needed and wait until you receive enough.</p>
