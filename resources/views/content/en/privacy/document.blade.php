@@ -159,9 +159,9 @@
         <address>
             <p>Our Address</p>
         </address>
-        <p>info@getmestuff.net</p>
+        <p><a href="mailto:info@getmestuff.net">info@getmestuff.net</a></p>
     </section>
-    <section class="footer">
+    <section class="container-footer">
         <p>Last Edited on 05/08/2017 (5<sup>th</sup> August)</p>
     </section>
 </div>
