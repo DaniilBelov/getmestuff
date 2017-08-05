@@ -30,12 +30,12 @@
             <li>
                 <p>To contact users.</p>
             </li>
-            <p>
-            	<li>To increases security of user accounts</li>
-            </p>
-            <p>
-            	<li>To increase security of the website</li>
-            </p>
+        	<li>
+                <p>To increases security of user accounts</p>
+            </li>
+            <li>
+            	<p>To increase security of the website</p>
+            </li>
         </ul>
     </section>
     <section class="section4 vertical">

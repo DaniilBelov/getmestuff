@@ -63,7 +63,7 @@
             <ul class="list dash">
                 <li>
                     <p>
-                        One cannot open an account or visit the website if the local governing body doesn’t approve any of the clauses/statements of current Terms of Service and Privacy Policy. This is entirely your responsibility to check the local laws before opening an account. If it is found that you opened an account against the local law, the governing body representative has an authority to contact us via report@getmestuff.net and request blocking or deleting the account details completely of the known individual who violated the laws.
+                        One cannot open an account or visit the website if the local governing body doesn’t approve any of the clauses/statements of current Terms of Service and Privacy Policy. This is entirely your responsibility to check the local laws before opening an account. If it is found that you opened an account against the local law, the governing body representative has an authority to contact us via <a href="mailto:report@getmestuff.net">report@getmestuff.net</a> and request blocking or deleting the account details completely of the known individual who violated the laws.
                     </p>
                 </li>
                 <li>
@@ -114,16 +114,16 @@
                     <p>Pledge a wish from an offered list with any desirable amount, not lower than US$0.01. By sending a pledge you confirm that this is solely your choice and you are not proceeding to this action if under pressure or any type of threat from somebody else.</p>
                 </li>
                 <li>
-                    <p>Publish a wish of your choice to get pledges for. Any of the wishes that you publish must fully comply with <span style="color: red;">[link]</span>. If any of your wishes violate the rules and don’t fully comply with the requirements, the Administration of the website has a full authority to proceed to any of the appropriate to the case actions described in [cl. 6, 5].</p>
+                    <p>Publish a wish of your choice to get pledges for. Any of the wishes that you publish must fully comply with <a href="/{{ $lang }}/rules" target="_blank">rules</a>. If any of your wishes violate the rules and don’t fully comply with the requirements, the Administration of the website has a full authority to proceed to any of the appropriate to the case actions described in [cl. 6, 5].</p>
                 </li>
                 <li>
                     <p>Delete a wish without pledges being transferred to another wish. Pledges lost due to the removal of the wish will by annihilated and will not be refunded to neither side (sender and receiver).</p>
                 </li>
                 <li>
-                    <p>Request to change title, purpose, amount of pledges needed and postal address (if applicable) of the existing wish without losing any existing donations made to the wish. In order to request the change of the wish, the user need to contact the customer service team via support@getmestuff.net and explain the reasoning behind the need of editing the wish. Please note, that the administration has full authority to accept or decline the request if it doesn’t fully comply with <span style="color: red;">[link]</span></p>
+                    <p>Request to change title, purpose, amount of pledges needed and postal address (if applicable) of the existing wish without losing any existing donations made to the wish. In order to request the change of the wish, the user need to contact the customer service team via support@getmestuff.net and explain the reasoning behind the need of editing the wish. Please note, that the administration has full authority to accept or decline the request if it doesn’t fully comply with <a href="/{{ $lang }}/rules" target="_blank">rules</a></p>
                 </li>
                 <li>
-                    <p>Permanently terminate the account by sending a request to support@getmestuff.net</p>
+                    <p>Permanently terminate the account by sending a request to <a href="mailto:support@getmestuff.net">support@getmestuff.net</a></p>
                 </li>
             </ul>
 
@@ -164,7 +164,7 @@
 
         <div class="sub">
             <h5>2.3. User Promoting License</h5>
-            <p>Promoting license is assigned to an individual upon special request via business@getmestuff.net. It is not guaranteed that the license will be given and active, it remains the Administration’s right to approve or decline the license. The request canbe sent via <span style="color: red;">[link]</span>. The license terminates automatically on the assigned date of expiry which is given when the license is issued if the application was successful.</p>
+            <p>Promoting license is assigned to an individual upon special request to <a href="mailto:business@getmestuff.net">business@getmestuff.net</a>. It is not guaranteed that the license will be given and active, it remains the Administration’s right to approve or decline the license. The request can be sent to <a href="mailto:business@getmestuff.net">business@getmestuff.net</a>. The license terminates automatically on the assigned date of expiry which is given when the license is issued if the application was successful.</p>
             <p>This license allows to publish any material related to the website for commercial and non-commercial purposes if the material or the advertisement was directly approved by the Administration before making it publicly available. The allowed methods of publications are discussed individually before approving the license.</p>
             <p>The license doesn’t allow to proceed with any actions that weren’t approved directly by the Administration when the license was issued.</p>
             <p>Failure to comply with the license allowances and restrictions will result in permanently terminating the license for the individual without a right to renew the license at any future time. The consequences are to follow in accordance to [cl. 6, 4]. The license may not be used after the expiration date, any promoting actions taken after the expiration date will be considered as a direct violation of all the rules and appropriate laws and consequences are to follow in accordance with [cl. 6].</p>
@@ -197,7 +197,7 @@
     <section class="section5 vertical">
         <h4>5. Administration’s Rights and Obligations</h4>
         <div class="sub">
-            <h5>Obligations</h5>
+            <h5>5.1 Obligations</h5>
             <p><b>5.1.1.</b> GetMeStuff is responsible for updating the website or other systems owned or managed by GetMeStuff in case of any found or reported bugs.</p>
             <p><b>5.1.2.</b> GetMeStuff must not provide any individual user’s address and name to third-party businesses with which it doesn't work, and liable with limitations for the security of this data. In case data breach occurs due to a hack or a used exploit of the system GetMeStuff becomes no longer liable for security of data provided by the users for their accounts.</p>
             <p><b>5.1.3.</b> GetMeStuff must use the system fairly and my not exploit any administrative powers which would put any user in an advantage in front of other users by any way which is not specified in the rules. This condition doesn’t apply for competitions and giveaways ran by GetMeStuff.</p>
@@ -236,7 +236,7 @@
                 <p>Any individual found promoting GetMeStuff without or against the conditions of the user promoting license will have to explain such actions to the Administration and will be required to remove any promotional material, if asked by the Administration. If the account of this individual can be traced, it may be blocked at the discretion of the Administration.</p>
             </li>
             <li>
-                <p>Any user found to publish a wish that is against the rules (can be accessed here <span style="color: red;">[link]</span>) will have the wish removed and the user’s account blocked temporarily or permanently, at the discretion of the administration.</p>
+                <p>Any user found to publish a wish that is against the rules (can be accessed here <a href="/{{ $lang }}/rules" target="_blank">rules</a>) will have the wish removed and the user’s account blocked temporarily or permanently, at the discretion of the administration.</p>
             </li>
             <li>
                 <p>Copying or creating a website which serves similar purpose to https://getmestuff.net is not allowed. The website’s materials are protected by the copyright. Legal actions will be initiated towards the individual who is found doing so. Consequences are to follow in accordance to the decision of the court.</p>
