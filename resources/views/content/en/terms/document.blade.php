@@ -108,7 +108,7 @@
 
             <ul class="list dash">
                 <li>
-                    <p>Top up account balance with any desirable amount, not lower than US$2 and not higher than the limit set by the payment system or your bank account, or online wallet allowance. A 20% commission (<span color="red">minimum US$[x]</span>) will be applied to any amount that is being credited to the user account. The commission received by GetMeStuff goes for maintaining website and service improvement.</p>
+                    <p>Top up account balance with any desirable amount, not lower than US$2 and not higher than the limit set by the payment system or your bank account, or online wallet allowance. A 20% commission will be applied to any amount that is being credited to the user account. The commission received by GetMeStuff goes for maintaining website and service improvement.</p>
                 </li>
                 <li>
                     <p>Pledge a wish from an offered list with any desirable amount, not lower than US$0.01. By sending a pledge you confirm that this is solely your choice and you are not proceeding to this action if under pressure or any type of threat from somebody else.</p>
