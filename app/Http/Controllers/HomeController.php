@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Achievement;
+use App\Bot\Bot;
+use App\Bots\Amazon;
 use App\Events\AchievementsOutdated;
 use App\GlobalSettings;
 use Illuminate\Http\Request;
@@ -103,6 +105,8 @@ class HomeController extends Controller
 
     public function test()
     {
-        
+        $bot = new Amazon("https://www.amazon.co.uk/Apple-iPhone-Smartphone-Certified-Refurbished/dp/B00X3CSVT4/ref=sr_1_1?ie=UTF8&qid=1503561657&sr=8-1&keywords=iphone");
+
+        dd($bot->buy());
     }
 }
