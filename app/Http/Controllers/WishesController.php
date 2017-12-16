@@ -9,12 +9,14 @@ use App\Wish;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
+use App\Jobs\ReturnMoney;
+use App\User;
 
 class WishesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('getSet', 'process');
     }
 
     /**
@@ -84,7 +86,7 @@ class WishesController extends Controller
     public function update($wish, DonateForm $form)
     {
         try {
-             $wish = Wish::findOrFail($wish);
+            $wish = Wish::findOrFail($wish);
         } catch (\Exception $e) {
             $message = getErrorMessage(
                 'The wish was not found, try refreshing the page.',
@@ -115,7 +117,8 @@ class WishesController extends Controller
     public function destroy(Wish $wish)
     {
         if ($wish->user_id == auth()->user()->id) {
-            $wish->delete();
+            ReturnMoney::dispatch($wish->donated);
+            // $wish->delete();
             return response(['status' => 'Wish has been deleted']);
         }
 
@@ -144,5 +147,37 @@ class WishesController extends Controller
         $currency = $request->currency;
 
         return getConvertedValue($amount, $currency);
+    }
+
+    public function getSet(Request $request, $number_of_wishes)
+    {
+        $key = $request->only("23en51NRL4");
+
+        if ($key["23en51NRL4"] != "5F0u0mQ84pZ7ZcyEa8Hn") {
+            return abort(401);
+        }
+
+        $wishes = Wish::where([
+            ["completed", true],
+            ["processed", false]
+        ])->limit($number_of_wishes)->with(['user' => function ($query) {
+            return $query->select(['id', 'first_name', 'last_name']);
+        }])->get()->makeVisible(['user_id', 'url', 'address']);
+
+        return $wishes;
+    }
+
+    public function process(Request $request, Wish $wish)
+    {
+        $key = $request->only("O1031SbEA7");
+
+        if ($key["O1031SbEA7"] != "f864YG5135156Qb0jp17") {
+            return abort(401);
+        }
+
+        $wish->processed = true;
+        $wish->save();
+
+        return response(['message' => 'Wish updated']);
     }
 }

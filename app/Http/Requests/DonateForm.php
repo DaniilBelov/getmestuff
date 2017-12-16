@@ -47,7 +47,7 @@ class DonateForm extends FormRequest
             throw new \Exception($message);
         }
 
-        event(new UserHasDonated($this->user(), $this->amount));
+        if ($this->user()->id !== $wish->user_id) event(new UserHasDonated($this->user(), $this->amount));
         dispatch(new NotifyUser($wish, $this->amount));
 
         $this->user()->donate($wish, $this->amount);

@@ -7,6 +7,7 @@ use App\Bot\Bot;
 use App\Bots\Amazon;
 use App\Events\AchievementsOutdated;
 use App\GlobalSettings;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Requests\PrizesForm;
 use App\User;
@@ -23,7 +24,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('test');;
+        $this->middleware('auth')->except('test');
     }
 
     /**
@@ -96,17 +97,32 @@ class HomeController extends Controller
 
     protected function getUserWishes()
     {
-        return auth()->user()->wishes()->where('completed', 0)->get()->map(function ($item) {
-            $item = collect($item);
-            $item['current_amount'] = $item['current_amount'] + $item['initial_amount'];
-            return $item;
-        });
+        return auth()->user()->wishes()->where('completed', 0)->get();
     }
 
     public function test()
     {
-        $bot = new Amazon("https://www.amazon.co.uk/Apple-iPhone-Smartphone-Certified-Refurbished/dp/B00X3CSVT4/ref=sr_1_1?ie=UTF8&qid=1503561657&sr=8-1&keywords=iphone");
+        // $bot = new Amazon();
+        // $bot->search('ipad mini');
+        // $bot->search('google pixel');
 
-        dd($bot->buy());
+        // $data = ["amount.202.23.user.2.donated", "amount.202.23.user.1.donated", "amount.202.23.user.1.donated", "amount.202.23.user.1.donated", "amount.202.23.user.1.donated"];
+        $wish = new Wish();
+        $data = $wish->find(2)->donated;
+        dd($data); 
+        $data = collect($data);
+        $user = new User();
+
+        $data->each(function ($item) use ($user) {
+            $output = sscanf($item, "amount.%f.user.%d.donated");
+            dd($output);
+            // $user->find($output[1])->increment('balance', $output[0]);
+        });
+
+        // $data = "amount.202.23.user.2.donated";
+
+        // $output = sscanf($data, "amount.%f.user.%d.donated");
+
+        // $user->find($output[1])->increment('balance', $output[0]);
     }
 }

@@ -41,15 +41,8 @@
                     <input type="radio" name="currency" v-model="currency" value="gbp" :checked="currency == 'gbp'"/> GBP
                 </label>
             </div>
-            <div class="flex between mw small-input-wrapper">
-                <div class="w48 pos-r">
-                    <input type="number"
-                           name="current_amount"
-                           v-model="current_amount"
-                           :placeholder="$t('current')"
-                           required>
-                </div>
-                <div class="w48 pos-r">
+            <div class="flex mw">
+                <div class="mw pos-r">
                     <input type="number"
                            name="amount_needed"
                            v-model="amount_needed"

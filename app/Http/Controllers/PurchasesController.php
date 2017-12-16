@@ -82,7 +82,7 @@ class PurchasesController extends Controller
             'ik_co_id' => '596b7c813b1eafc71c8b456c',
             'ik_pm_no' => 'ID_4233',
             'ik_am' => $amount,
-            'ik_cur' => 'USD',
+            'ik_cur' => 'RUB',
             'ik_desc' => 'Wallet Top Up',
             'ik_x_user' => $request->user()->id
         ];

@@ -116,6 +116,19 @@
                 </ul>
             </li>
             <li>
+                <a href="javascript:void(0);" class="waves-effect">
+                    <i class="linea-icon linea-basic fa-fw" data-icon="Y"></i>
+                    <span class="hide-menu">
+                        Documents
+                        <span class="fa arrow"></span>
+                    </span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li> <a href="/{{ $lang }}/admin/docs/terms">Terms and Conditions</a> </li>
+                    <li> <a href="/{{ $lang }}/admin/docs/privacy">Privacy Policy</a> </li>
+                </ul>
+            </li>
+            <li>
                 <a href="/admin/logout"
                    class="waves-effect"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

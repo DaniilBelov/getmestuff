@@ -41,7 +41,6 @@ const translationsEn = {
     priority: 'This wish\'s priority will be higher.',
     item: 'What is Your Wish?',
     link: 'Link to your desired product...',
-    current: 'Current Amount (default: 0)',
     needed: 'Amount Needed',
     address: 'Please provide your full address\:',
     address1: 'Address 1',
@@ -130,7 +129,6 @@ const translationsRu = {
     priority: 'Приоритет этого желания будет выше.',
     item: 'Что бы вы хотели?',
     link: 'Ссылка на желаемый продукт...',
-    current: 'Текущая Сумма (0)',
     needed: 'Необхадимая Сумма',
     address: 'Пожалуйста, укажите свой полный адрес\:',
     address1: 'Адрес 1',
@@ -194,6 +192,7 @@ moment.locale(locale.content);
 window.flashMessages = {
     en: {
         'for-donating': 'Thank you for donating.',
+        donated: 'Wish updated.',
         'for-reporting': 'The wish has been reported.',
         'for-reporting-fail': 'Something went wrong!',
         'published-wish': 'Your wish has been published.',
@@ -210,6 +209,7 @@ window.flashMessages = {
     },
     ru: {
         'for-donating': 'Благодарим за пожертвование.',
+        donated: 'Желание обновленно.',
         'for-reporting': 'Вы успешно сообщили о нарушении.',
         'for-reporting-fail': 'Что-то пошло не так!',
         'published-wish': 'Ваше желание опубликовано.',

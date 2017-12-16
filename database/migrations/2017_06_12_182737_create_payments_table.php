@@ -20,7 +20,6 @@ class CreatePaymentsTable extends Migration
             $table->boolean('successful');
             $table->float('amount', 255, 2)->unsigned();
             $table->float('interest', 255, 2)->unsigned();
-            $table->float('deleted_wish', 255, 2)->unsigned()->nullable();
             $table->timestamps();
         });
     }

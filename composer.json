@@ -8,6 +8,7 @@
         "php": ">=5.6.4",
         "braintree/braintree_php": "^3.23",
         "dimsav/laravel-translatable": "^7.3",
+        "erusev/parsedown": "^1.6",
         "guzzle/plugin-cookie": "^3.9",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/cashier": "~7.0",

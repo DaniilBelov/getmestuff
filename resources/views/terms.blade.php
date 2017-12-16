@@ -13,7 +13,7 @@
 @section ('content')
     <main class="col-12 mw mh m-auto main-fix flex center">
         <div class="bg-white w8 main-content">
-            @include("content.$lang.terms.document")
+            {!! $file !!}
         </div>
     </main>
 @endsection

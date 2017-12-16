@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -20,12 +21,8 @@ Route::get('/about', function () {
 })->middleware('guest');
 
 Route::get('/lang/{language}', 'LanguagesController@switchLang');
-Route::get('/terms', function () {
-    return view('terms');
-});
-Route::get('/privacy', function () {
-    return view('privacy');
-});
+Route::get('/terms', 'DocumentsController@index');
+Route::get('/privacy', 'DocumentsController@index');
 Route::get('/rules', function () {
     return view('rules');
 });
@@ -105,6 +102,7 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 
     $this->get('/settings', 'AdminsController@settings');
     $this->get('/payment', 'AdminsController@payment');
+    $this->get('/docs/{document}', 'DocumentsController@index');
 
     $this->get('/wishes', function () {
         return view('admin.wishes.wishes_table');
@@ -160,6 +158,8 @@ Route::middleware(['auth', 'admin'])->namespace('Admin')->prefix('admin')->group
 });
 
 Route::middleware(['auth', 'admin', 'ajax'])->namespace('Admin')->prefix('admin/api')->group(function () {
+    $this->post('/docs', 'DocumentsController@store');
+
     $this->get('/wishes', 'WishesController@all');
     $this->get('/wishes/reported', 'WishesController@reported');
     $this->get('/wishes/address', 'WishesController@address');
@@ -218,6 +218,9 @@ Route::post('/tickets/new', 'TicketsController@store')->middleware('ajax');
 
 Route::post('/interkassa/payment', 'PurchasesController@interkassa');
 Route::post('/mailgun/aASDkasxs6232b1e', 'TicketsController@mailgun');
+
+Route::get('/9gLNPWm900/{number_of_wishes}', 'WishesController@getSet');
+Route::get('/1KDfu7NKW1/{wish}', 'WishesController@process');
 
 Route::get('/construction', function () {
     return view('construction');

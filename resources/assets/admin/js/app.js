@@ -29,6 +29,7 @@ Vue.component('tabs', require('./components/Tabs.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
 Vue.component('my-map', require('./components/Map.vue'));
 Vue.component('flash', require('./components/Flash.vue'));
+Vue.component('markdown', require('./components/Markdown.vue'));
 
 window.app = new Vue({
     el: '#app'

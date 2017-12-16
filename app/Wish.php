@@ -13,13 +13,14 @@ class Wish extends Model
     public $translatedAttributes = ['item'];
 
     protected $fillable = [
-        'user_id', 'url', 'initial_amount', 'current_amount',
+        'user_id', 'url', 'current_amount',
         'amount_needed', 'address', 'donated', 'completed',
         'priority', 'validated', 'processed'
     ];
 
     protected $casts = [
-        'address' => 'json'
+        'address' => 'json',
+        'donated' => 'json'
     ];
 
     /**
@@ -28,7 +29,7 @@ class Wish extends Model
      * @var array
      */
     protected $hidden = [
-        'user_id', 'url', 'address', 'priority', 'validated', 'completed', 'donated', 'updated_at'
+        'url', 'address', 'priority', 'validated', 'completed', 'donated', 'updated_at'
     ];
 
     public static function boot()
@@ -47,21 +48,8 @@ class Wish extends Model
         });
 
         static::deleting(function (Wish $wish) {
-            $amount = $wish->current_amount - $wish->initial_amount;
-
             if ($wish->user->number_of_wishes == 0) {
                 $wish->user->increment('number_of_wishes');
-            }
-
-            if ($amount != 0) {
-                Payment::create([
-                    'user_id' => $wish->user_id,
-                    'payment_id' => 12345,
-                    'successful' => true,
-                    'amount' => 0,
-                    'interest' => 0,
-                    'deleted_wish' => $amount
-                ]);
             }
         });
     }
@@ -77,7 +65,7 @@ class Wish extends Model
     public function recordDonation($user, $value)
     {
         $this->current_amount += $value;
-        $donated = json_decode($this->donated, true);
+        $donated = $this->donated;
 
         if (is_null($donated)) {
             $donated = [
@@ -87,7 +75,7 @@ class Wish extends Model
             array_push($donated, "amount.$value.user.$user.donated");
         }
 
-        $this->donated = json_encode($donated);
+        $this->donated = $donated;
 
         $this->save();
     }
@@ -107,11 +95,7 @@ class Wish extends Model
             $wishes = $wishes->whereNotIn('id', $ids);
         }
         
-        return $wishes->limit($limit)->get()->map(function ($item) {
-            $item = collect($item);
-            $item['current_amount'] = $item['current_amount'] + $item['initial_amount'];
-            return $item;
-        });
+        return $wishes->limit($limit)->get();
     }
 
     public function getWish($id, $ids)

@@ -2,7 +2,7 @@
     <div class="mw">
         <div class="mw user-wishes owl-theme owl-carousel" v-if="arrayCheck(items)">
             <div class="mw item" v-for="(wish, index) in items" :key="wish.id">
-                <wish @delete="removeWish(index)" :data="wish" :report="false" :displayForm="false">
+                <wish @delete="removeWish(index)" :data="wish" :report="false">
                     <h3 slot="header" v-text="$t('user')"></h3>
                 </wish>
             </div>

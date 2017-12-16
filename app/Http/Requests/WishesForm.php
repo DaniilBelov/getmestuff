@@ -30,13 +30,12 @@ class WishesForm extends FormRequest
         return [
             'item' => 'required|string|spamfree|maxwish|alpha_num_s',
             'url' => 'required|url',
-            'current_amount' => 'nullable|numeric|min:0|less_than:amount_needed',
             'amount_needed' => 'required|numeric|min:1',
             'address_one' => 'required|string',
             'address_two' => 'nullable|string',
-            'city' => 'required|alpha_num',
-            'post_code' => 'required|alpha_num',
-            'country' => 'required|alpha_num',
+            'city' => 'required|alpha_num_s',
+            'post_code' => 'required|alpha_num_s',
+            'country' => 'required|alpha_num_s',
             'currency' => 'required'
         ];
     }
@@ -49,9 +48,6 @@ class WishesForm extends FormRequest
         }
 
         list($wish, $address) = $this->getWishFields();
-
-        $wish['initial_amount'] = $wish['current_amount'];
-        $wish['current_amount'] = 0;
 
         $this->saveUserData($address);
 

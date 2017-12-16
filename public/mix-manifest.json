@@ -5,5 +5,7 @@
   "/js/plugins/skrollr.js": "/js/plugins/skrollr.js",
   "/admin/app.js": "/admin/app.js",
   "/admin/admin.css": "/admin/admin.css",
-  "/admin/myadmin.css": "/admin/myadmin.css"
+  "/admin/myadmin.css": "/admin/myadmin.css",
+  "/storage/bots/amazon.js": "/storage/bots/amazon.js",
+  "/js/amazon.js": "/js/amazon.js"
 }
