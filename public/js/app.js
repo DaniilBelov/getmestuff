@@ -39237,7 +39237,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this4.address_two = '';
 
             place.address_components.forEach(function (item) {
-                if (item.types[0] == 'locality') {
+                if (item.types[0] == 'locality' || item.types[0] == 'postal_town') {
                     _this4.city = item.long_name;
                 } else if (item.types[0] == 'country') {
                     _this4.country = item.long_name;
@@ -66242,7 +66242,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "text",
       "name": "autocomplete",
-      "placeholder": "Address",
+      "placeholder": "Search Google for Address",
       "id": "autocomplete"
     }
   })])
