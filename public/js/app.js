@@ -39130,6 +39130,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -39221,6 +39224,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
 
         if (this.last_currency != '') this.currency = this.last_currency;
+    },
+    mounted: function mounted() {
+        var _this4 = this;
+
+        var input = document.querySelector("#autocomplete");
+        var dropdown = new google.maps.places.Autocomplete(input);
+
+        dropdown.addListener('place_changed', function () {
+            var place = dropdown.getPlace();
+            _this4.address_one = place.name;
+            _this4.address_two = '';
+
+            place.address_components.forEach(function (item) {
+                if (item.types[0] == 'locality') {
+                    _this4.city = item.long_name;
+                } else if (item.types[0] == 'country') {
+                    _this4.country = item.long_name;
+                } else if (item.types[0] == 'postal_code') {
+                    _this4.post_code = item.long_name;
+                }
+            });
+        });
     }
 });
 
@@ -39655,6 +39680,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     window.events.$emit('achievements', [_this.amount, [1, 4]]);
                     message = window.flashMessages[window.App.locale]['for-donating'];
                 }
+
+                if (_this.current == _this.needed) _this.$emit('delete', _this.id);
 
                 _this.$emit('donated', _this.id);
                 _this.amount = '';
@@ -66055,7 +66082,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "textContent": _vm._s(_vm.$t('address'))
     }
-  })]), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
     staticClass: "mw pos-r"
   }, [_c('input', {
     directives: [{
@@ -66208,7 +66235,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "textContent": _vm._s(_vm.$t('not-donated'))
     }
   })])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "mw pos-r"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "autocomplete",
+      "placeholder": "Address",
+      "id": "autocomplete"
+    }
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()

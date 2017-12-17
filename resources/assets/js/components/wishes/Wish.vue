@@ -73,6 +73,8 @@
                         message = window.flashMessages[window.App.locale]['for-donating'];
                     }
 
+                    if (this.current == this.needed) this.$emit('delete', this.id);
+
                     this.$emit('donated', this.id);
                     this.amount = '';
 

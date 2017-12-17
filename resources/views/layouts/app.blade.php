@@ -76,6 +76,7 @@
 
         @include('misc.spinner')
 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKzTCqlun4x4XHknXnpZV63TVX-dHSemA&libraries=places&language={!! app()->getLocale() !!}"></script>        
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         <script>
             Vue.i18n.set('{!! app()->getLocale() !!}');

@@ -53,6 +53,9 @@
             <div class="mw divisor divisor-bg">
                 <p><i class="fa fa-address-card-o" aria-hidden="true"></i><span v-text="$t('address')"></span></p>
                 <div class="mw pos-r">
+                    <input type="text" name="autocomplete" placeholder="Address" id="autocomplete">
+                </div>
+                <div class="mw pos-r">
                     <input type="text"
                            name="address_one"
                            v-model="address_one"
@@ -185,6 +188,26 @@
             });
 
             if (this.last_currency != '') this.currency = this.last_currency;
+        },
+        mounted() {
+            const input = document.querySelector("#autocomplete");
+            const dropdown = new google.maps.places.Autocomplete(input);
+
+            dropdown.addListener('place_changed', () => {
+                const place = dropdown.getPlace();
+                this.address_one = place.name;
+                this.address_two = '';
+                
+                place.address_components.forEach((item) => {
+                    if (item.types[0] == 'locality') {
+                        this.city = item.long_name;
+                    } else if (item.types[0] == 'country') {
+                        this.country = item.long_name;
+                    } else if (item.types[0] == 'postal_code') {
+                        this.post_code = item.long_name;
+                    }
+                });
+            });
         }
     }
 </script>
