@@ -4,6 +4,11 @@
 
 @section('header')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+    <style>
+        .CodeMirror-scroll {
+            height: 500px
+        }
+    </style>
 @endsection
 
 @section('page_title', 'Documents')
