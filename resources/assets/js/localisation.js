@@ -1,6 +1,6 @@
 import Vuex from 'vuex';
 import vuexI18n from 'vuex-i18n';
-import moment from 'moment';
+// import moment from 'moment';
 
 const store = new Vuex.Store();
 
@@ -43,6 +43,7 @@ const translationsEn = {
     link: 'Link to your desired product...',
     needed: 'Amount Needed',
     address: 'Please provide your full address\:',
+    google: 'Search Google for your Address',
     address1: 'Address 1',
     address2: 'Address 2 (optional)',
     city: 'City',
@@ -130,6 +131,7 @@ const translationsRu = {
     item: 'Что бы вы хотели?',
     link: 'Ссылка на желаемый продукт...',
     needed: 'Необхадимая Сумма',
+    google: 'Найти адрес в Google',
     address: 'Пожалуйста, укажите свой полный адрес\:',
     address1: 'Адрес 1',
     address2: 'Адрес 2 (необязательно)',
@@ -184,10 +186,10 @@ const translationsRu = {
 
 Vue.i18n.add('en', translationsEn);
 Vue.i18n.add('ru', translationsRu);
+Vue.i18n.set(window.App.locale);
 
-let locale = document.head.querySelector('meta[name="locale"]');
-
-moment.locale(locale.content);
+// let locale = document.head.querySelector('meta[name="locale"]');
+// moment.locale(locale.content);
 
 window.flashMessages = {
     en: {

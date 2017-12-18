@@ -53,7 +53,12 @@
             <div class="mw divisor divisor-bg">
                 <p><i class="fa fa-address-card-o" aria-hidden="true"></i><span v-text="$t('address')"></span></p>
                 <div class="mw pos-r">
-                    <input type="text" name="autocomplete" placeholder="Search Google for Address" id="autocomplete">
+                    <input 
+                            type="text" 
+                            name="autocomplete" 
+                            :placeholder="$t('google')"
+                            @keypress.enter.prevent="" 
+                            id="autocomplete">
                 </div>
                 <div class="mw pos-r">
                     <input type="text"

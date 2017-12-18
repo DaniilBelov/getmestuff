@@ -30,12 +30,8 @@
 @endsection
 
 @section ('script')
-    <script src="https://js.braintreegateway.com/js/braintree-2.32.1.min.js"></script>
     <script type="text/javascript">
         $(function() {
-
-            // var input = document.getElementById('autocomplete');
-            // let data =new google.maps.places.Autocomplete(input);
 
             document.getElementById('vk_share_button').innerHTML =
                 VK.Share.button(

@@ -106,23 +106,17 @@ class HomeController extends Controller
         // $bot->search('ipad mini');
         // $bot->search('google pixel');
 
-        // $data = ["amount.202.23.user.2.donated", "amount.202.23.user.1.donated", "amount.202.23.user.1.donated", "amount.202.23.user.1.donated", "amount.202.23.user.1.donated"];
-        $wish = new Wish();
-        $data = $wish->find(2)->donated;
-        dd($data); 
-        $data = collect($data);
-        $user = new User();
+        // $client = new Client();
 
-        $data->each(function ($item) use ($user) {
-            $output = sscanf($item, "amount.%f.user.%d.donated");
-            dd($output);
-            // $user->find($output[1])->increment('balance', $output[0]);
-        });
+        // $result = $client->get("https://www.svyaznoy.ru/catalog/phone/224/3808979")->getBody()->getContents();
 
-        // $data = "amount.202.23.user.2.donated";
+        // dd($result);
 
-        // $output = sscanf($data, "amount.%f.user.%d.donated");
+        // $data = '<span class="b-price">78&nbsp;990&nbsp;<span class="h-rouble">руб.</span></span>';
+        // preg_match_all('!\d+!', $data, $matches);
 
-        // $user->find($output[1])->increment('balance', $output[0]);
+        // dd($matches);
+
+        return bcrypt('89917032');
     }
 }

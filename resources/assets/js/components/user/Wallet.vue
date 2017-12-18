@@ -3,11 +3,11 @@
         <h2 v-text="$t('wallet')"></h2>
         <div class="mw" v-if="disabled.on">
             <div class="flex between select">
-                <form class="pos-r w48 m-auto">
+                <div class="pos-r w48">
                     <input :placeholder="$t('amount')" v-model="amount" @blur="twoDeciamls">
                     <i class="icn-pos fa fa-usd" aria-hidden="true"></i>
-                </form>
-                <div class="w48 m-auto">
+                </div>
+                <div class="pos-r w48">
                     <input class="m-auto p-none" :value="amountWithInterest" type="text" :placeholder="$t('interest')" disabled>
                 </div>
             </div>

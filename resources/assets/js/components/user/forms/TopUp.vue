@@ -1,13 +1,10 @@
 <template>
     <form class="mw flex around vertical" v-if="locale == 'en'">
-        <div class="w95 topup-form" id="dropin-container"></div>
-        <div class="w95 flex start topup-button">
-            <button :disabled="buffering" type="submit">{{ $t('top-up') }}</button>
-        </div>
+        <div id="paypal-button"></div>
     </form>
     <form class="mw flex center" id="interkassa-payment" name="payment" method="post" action="https://sci.interkassa.com/" enctype="utf-8" v-else>
-        <button :disabled="buffering" class="w95 pos-r" @click.prevent="submitPayment" type="submit">
-            Поплнить
+        <button :disabled="buffering" class="mw pos-r" @click.prevent="submitPayment" type="submit">
+            Поплнить кошелек
         </button>
     </form>
 </template>
@@ -27,37 +24,38 @@
             this.locale = window.App.locale;
 
             if (this.locale == 'en') {
-                axios.get('/braintree/token')
-                    .then((response) => {
-                        this.token = response.data.token;
-
-                        braintree.setup(this.token, 'dropin', {
-                            container: 'dropin-container',
-                            onPaymentMethodReceived: (response) => {
-                                this.buffering = true;
-
-                                axios.post('/topup', {
-                                    value: this.amount,
-                                    braintreeNonce: response.nonce
-                                }).then(() => {
-                                    window.events.$emit('increment', this.amount);
-                                    this.buffering = false;
-
-                                    let message = window.flashMessages[window.App.locale]['redeemed'];
-
-                                    flash([message]);
-                                }).catch((error) => {
-                                    let messages = [];
-                                    for (let key in error.response.data) {
-                                        messages.push(error.response.data[key][0]);
+                paypal.Button.render({
+                    env: 'sandbox', // Or 'sandbox',
+                    client: {
+                        sandbox: 'AYK2wIbU-3bGn17T-A05XXGmGco2_zlOIiB_Yd9BN_F_0ZrvdMIEUR4rQYy9SPPgXY4Z-kQ7Yy77eVXO'
+                    },
+                    commit: true, // Show a 'Pay Now' button
+                    style: {
+                        color: 'gold',
+                        size: 'small'
+                    },
+                    payment: function(data, actions) {
+                        return actions.payment.create({
+                            payment: {
+                                transactions: [
+                                    {
+                                        amount: { total: '1.00', currency: 'USD' }
                                     }
-                                    this.buffering = false;
-
-                                    flash(messages, 'error');
-                                });
+                                ]
                             }
                         });
-                    });
+                    },
+                    onAuthorize: function(data, actions) {
+                        return actions.payment.execute().then(function(payment) {
+                            if (payment.state == "approved") {
+                                let amount = payment.transactions[0].amount.total;
+                                console.log(amount);
+                            }
+                        });
+                    },
+                    onError: function(err) {
+                        console.log(err);
+                    }}, '#paypal-button');
             }
         },
         methods: {

@@ -39133,6 +39133,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -39482,9 +39487,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['amount', 'user', 'commissions'],
@@ -39497,47 +39499,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     created: function created() {
-        var _this = this;
-
         this.locale = window.App.locale;
 
         if (this.locale == 'en') {
-            axios.get('/braintree/token').then(function (response) {
-                _this.token = response.data.token;
-
-                braintree.setup(_this.token, 'dropin', {
-                    container: 'dropin-container',
-                    onPaymentMethodReceived: function onPaymentMethodReceived(response) {
-                        _this.buffering = true;
-
-                        axios.post('/topup', {
-                            value: _this.amount,
-                            braintreeNonce: response.nonce
-                        }).then(function () {
-                            window.events.$emit('increment', _this.amount);
-                            _this.buffering = false;
-
-                            var message = window.flashMessages[window.App.locale]['redeemed'];
-
-                            flash([message]);
-                        }).catch(function (error) {
-                            var messages = [];
-                            for (var key in error.response.data) {
-                                messages.push(error.response.data[key][0]);
-                            }
-                            _this.buffering = false;
-
-                            flash(messages, 'error');
-                        });
-                    }
-                });
-            });
+            paypal.Button.render({
+                env: 'sandbox', // Or 'sandbox',
+                client: {
+                    sandbox: 'AYK2wIbU-3bGn17T-A05XXGmGco2_zlOIiB_Yd9BN_F_0ZrvdMIEUR4rQYy9SPPgXY4Z-kQ7Yy77eVXO'
+                },
+                commit: true, // Show a 'Pay Now' button
+                style: {
+                    color: 'gold',
+                    size: 'small'
+                },
+                payment: function payment(data, actions) {
+                    return actions.payment.create({
+                        payment: {
+                            transactions: [{
+                                amount: { total: '1.00', currency: 'USD' }
+                            }]
+                        }
+                    });
+                },
+                onAuthorize: function onAuthorize(data, actions) {
+                    return actions.payment.execute().then(function (payment) {
+                        if (payment.state == "approved") {
+                            var amount = payment.transactions[0].amount.total;
+                            console.log(amount);
+                        }
+                    });
+                },
+                onError: function onError(err) {
+                    console.log(err);
+                } }, '#paypal-button');
         }
     },
 
     methods: {
         submitPayment: function submitPayment() {
-            var _this2 = this;
+            var _this = this;
 
             this.buffering = true;
             axios.get('/interkassa', {
@@ -39553,13 +39553,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                 $('#interkassa-payment').submit();
             }).catch(function (error) {
-                _this2.buffering = true;
+                _this.buffering = true;
 
                 var messages = [];
                 for (var key in error.response.data) {
                     messages.push(error.response.data[key][0]);
                 }
-                _this2.buffering = false;
+                _this.buffering = false;
 
                 flash(messages, 'error');
             });
@@ -39896,11 +39896,9 @@ window.shortenNum = function (number) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(314);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex_i18n__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
 
 
-
+// import moment from 'moment';
 
 var store = new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store();
 
@@ -39943,6 +39941,7 @@ var translationsEn = {
     link: 'Link to your desired product...',
     needed: 'Amount Needed',
     address: 'Please provide your full address\:',
+    google: 'Search Google for your Address',
     address1: 'Address 1',
     address2: 'Address 2 (optional)',
     city: 'City',
@@ -40030,6 +40029,7 @@ var translationsRu = {
     item: 'Что бы вы хотели?',
     link: 'Ссылка на желаемый продукт...',
     needed: 'Необхадимая Сумма',
+    google: 'Найти адрес в Google',
     address: 'Пожалуйста, укажите свой полный адрес\:',
     address1: 'Адрес 1',
     address2: 'Адрес 2 (необязательно)',
@@ -40084,10 +40084,10 @@ var translationsRu = {
 
 Vue.i18n.add('en', translationsEn);
 Vue.i18n.add('ru', translationsRu);
+Vue.i18n.set(window.App.locale);
 
-var locale = document.head.querySelector('meta[name="locale"]');
-
-__WEBPACK_IMPORTED_MODULE_2_moment___default.a.locale(locale.content);
+// let locale = document.head.querySelector('meta[name="locale"]');
+// moment.locale(locale.content);
 
 window.flashMessages = {
     en: {
@@ -65209,18 +65209,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return (_vm.locale == 'en') ? _c('form', {
     staticClass: "mw flex around vertical"
   }, [_c('div', {
-    staticClass: "w95 topup-form",
     attrs: {
-      "id": "dropin-container"
+      "id": "paypal-button"
     }
-  }), _vm._v(" "), _c('div', {
-    staticClass: "w95 flex start topup-button"
-  }, [_c('button', {
-    attrs: {
-      "disabled": _vm.buffering,
-      "type": "submit"
-    }
-  }, [_vm._v(_vm._s(_vm.$t('top-up')))])])]) : _c('form', {
+  })]) : _c('form', {
     staticClass: "mw flex center",
     attrs: {
       "id": "interkassa-payment",
@@ -65230,7 +65222,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "enctype": "utf-8"
     }
   }, [_c('button', {
-    staticClass: "w95 pos-r",
+    staticClass: "mw pos-r",
     attrs: {
       "disabled": _vm.buffering,
       "type": "submit"
@@ -65241,7 +65233,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.submitPayment($event)
       }
     }
-  }, [_vm._v("\n        Поплнить\n    ")])])
+  }, [_vm._v("\n        Поплнить кошелек\n    ")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -66082,7 +66074,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "textContent": _vm._s(_vm.$t('address'))
     }
-  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('div', {
+  })]), _vm._v(" "), _c('div', {
+    staticClass: "mw pos-r"
+  }, [_c('input', {
+    attrs: {
+      "type": "text",
+      "name": "autocomplete",
+      "placeholder": _vm.$t('google'),
+      "id": "autocomplete"
+    },
+    on: {
+      "keypress": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        $event.preventDefault();
+      }
+    }
+  })]), _vm._v(" "), _c('div', {
     staticClass: "mw pos-r"
   }, [_c('input', {
     directives: [{
@@ -66235,18 +66242,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "textContent": _vm._s(_vm.$t('not-donated'))
     }
   })])
-},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "mw pos-r"
-  }, [_c('input', {
-    attrs: {
-      "type": "text",
-      "name": "autocomplete",
-      "placeholder": "Search Google for Address",
-      "id": "autocomplete"
-    }
-  })])
-}]}
+},staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -66733,8 +66729,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "mw"
   }, [_c('div', {
     staticClass: "flex between select"
-  }, [_c('form', {
-    staticClass: "pos-r w48 m-auto"
+  }, [_c('div', {
+    staticClass: "pos-r w48"
   }, [_c('input', {
     directives: [{
       name: "model",
@@ -66761,7 +66757,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "aria-hidden": "true"
     }
   })]), _vm._v(" "), _c('div', {
-    staticClass: "w48 m-auto"
+    staticClass: "pos-r w48"
   }, [_c('input', {
     staticClass: "m-auto p-none",
     attrs: {
