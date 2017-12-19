@@ -26,19 +26,3 @@
 
 @section('scripts')
 @endsection
-
-{{--  <html>
-    <head>
-        <title>Hello</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
-    </head>
-    <body>
-        <textarea id="editor">{{ $file }}</textarea>
-        <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
-        <script>
-            var simplemde = new SimpleMDE({ 
-                element: document.getElementById("editor") 
-            });
-        </script>
-    </body>
-</html>  --}}

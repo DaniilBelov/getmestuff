@@ -219,6 +219,8 @@ Route::post('/tickets/new', 'TicketsController@store')->middleware('ajax');
 Route::post('/interkassa/payment', 'PurchasesController@interkassa');
 Route::post('/mailgun/aASDkasxs6232b1e', 'TicketsController@mailgun');
 
+Route::post('/paypal/success', 'PurchasesController@paypal');
+
 Route::get('/9gLNPWm900/{number_of_wishes}', 'WishesController@getSet');
 Route::get('/1KDfu7NKW1/{wish}', 'WishesController@process');
 

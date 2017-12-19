@@ -14,6 +14,7 @@ use App\User;
 use App\Wish;
 use App\Prize;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -117,6 +118,7 @@ class HomeController extends Controller
 
         // dd($matches);
 
-        return bcrypt('89917032');
+        $data = file_get_contents('php://input');
+        dd($data);
     }
 }

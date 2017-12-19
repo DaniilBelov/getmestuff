@@ -38771,22 +38771,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             balance: this.user.balance.toFixed(2)
         };
     },
-
-    computed: {
-        money: function money() {
-            return this.user.balance.toFixed(2);
-        }
-    },
     created: function created() {
         var _this = this;
 
         window.events.$on('increment', function (argument) {
-            _this.balance += parseFloat(argument);
+            _this.balance += +argument;
         });
 
         window.events.$on('decrement', function (argument) {
-            console.log(parseFloat(argument));
-            _this.balance = (parseFloat(_this.balance) - parseFloat(argument)).toFixed(2);
+            _this.balance = (+_this.balance - +argument).toFixed(2);
         });
 
         window.events.$on('profileUpdate', function (argument) {
@@ -39487,6 +39480,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['amount', 'user', 'commissions'],
@@ -39495,46 +39501,71 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             buffering: false,
             token: '',
-            locale: ''
+            locale: '',
+            money: 0
         };
+    },
+
+    watch: {
+        amount: function amount(val) {
+            this.moeny = +val;
+        }
     },
     created: function created() {
         this.locale = window.App.locale;
 
-        if (this.locale == 'en') {
-            paypal.Button.render({
-                env: 'sandbox', // Or 'sandbox',
-                client: {
-                    sandbox: 'AYK2wIbU-3bGn17T-A05XXGmGco2_zlOIiB_Yd9BN_F_0ZrvdMIEUR4rQYy9SPPgXY4Z-kQ7Yy77eVXO'
-                },
-                commit: true, // Show a 'Pay Now' button
-                style: {
-                    color: 'gold',
-                    size: 'small'
-                },
-                payment: function payment(data, actions) {
-                    return actions.payment.create({
-                        payment: {
-                            transactions: [{
-                                amount: { total: '1.00', currency: 'USD' }
-                            }]
-                        }
-                    });
-                },
-                onAuthorize: function onAuthorize(data, actions) {
-                    return actions.payment.execute().then(function (payment) {
-                        if (payment.state == "approved") {
-                            var amount = payment.transactions[0].amount.total;
-                            console.log(amount);
-                        }
-                    });
-                },
-                onError: function onError(err) {
-                    console.log(err);
-                } }, '#paypal-button');
-        }
+        // if (this.locale == 'en') {
+        //     let CREATE_PAYMENT_URL  = `http://getmestuff.dev/en/paypal/create-payment`;
+        //     let EXECUTE_PAYMENT_URL = 'http://getmestuff.dev/en/paypal/execute-payment';
+
+        //     paypal.Button.render({
+        //         env: 'sandbox',
+        //         client: {
+        //             sandbox: 'AYK2wIbU-3bGn17T-A05XXGmGco2_zlOIiB_Yd9BN_F_0ZrvdMIEUR4rQYy9SPPgXY4Z-kQ7Yy77eVXO'
+        //         },
+        //         commit: true,
+        //         style: {
+        //             color: 'gold',
+        //             size: 'small'
+        //         },
+        //         payment: function(data, actions) {
+        //             return axios.post(CREATE_PAYMENT_URL, {
+        //                 amount: this.amount
+        //             }).then((data) => {
+        //                 return data.id;
+        //             });
+        //             // return paypal.request.post(CREATE_PAYMENT_URL).then(function(data) {
+        //             //     return data.id;
+        //             // });
+        //             // return actions.payment.create({
+        //             //     payment: {
+        //             //         transactions: [
+        //             //             {
+        //             //                 amount: { total: '1.00', currency: 'USD' }
+        //             //             }
+        //             //         ]
+        //             //     }
+        //             // });
+        //         },
+        //         onAuthorize: function(data, actions) {
+        //             return actions.payment.execute().then(function(payment) {
+        //                 if (payment.state == "approved") {
+        //                     let amount = payment.transactions[0].amount.total;
+        //                     console.log(amount);
+        //                 }
+        //             });
+        //         },
+        //         onError: function(err) {
+        //             console.log(err);
+        //         }}, '#paypal-button');
+        // }
     },
 
+    computed: {
+        user: function user() {
+            return window.App.user.id;
+        }
+    },
     methods: {
         submitPayment: function submitPayment() {
             var _this = this;
@@ -65206,13 +65237,67 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (_vm.locale == 'en') ? _c('form', {
-    staticClass: "mw flex around vertical"
-  }, [_c('div', {
+  return _c('div', [(_vm.locale == 'en') ? _c('form', {
     attrs: {
-      "id": "paypal-button"
+      "action": "https://www.sandbox.paypal.com/cgi-bin/webscr",
+      "method": "post",
+      "target": "_top"
     }
-  })]) : _c('form', {
+  }, [_c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "cmd",
+      "value": "_xclick"
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "amount",
+      "value": "20"
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "business",
+      "value": "getmestuff.business-facilitator@gmail.com"
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "currency_code",
+      "value": "USD"
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "no_shipping",
+      "value": "1"
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "custom"
+    },
+    domProps: {
+      "value": _vm.user
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "return",
+      "value": "http://a2ea6c3f.ngrok.io/home"
+    }
+  }), _vm._v(" "), _c('input', {
+    attrs: {
+      "type": "hidden",
+      "name": "item_name",
+      "value": "GetMeStuff | Account Top Up"
+    }
+  }), _vm._v(" "), _c('button', {
+    attrs: {
+      "type": "submit"
+    }
+  }, [_vm._v("Top Up")])]) : _c('form', {
     staticClass: "mw flex center",
     attrs: {
       "id": "interkassa-payment",
@@ -65233,7 +65318,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.submitPayment($event)
       }
     }
-  }, [_vm._v("\n        Поплнить кошелек\n    ")])])
+  }, [_vm._v("\n            Поплнить кошелек\n        ")])])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

@@ -6,7 +6,9 @@ use App\GlobalSettings;
 use App\Http\Requests\WalletForm;
 use App\Payment;
 use App\User;
+use App\PayPal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PurchasesController extends Controller
 {
@@ -17,7 +19,7 @@ class PurchasesController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('interkassa');
+        $this->middleware('auth')->except(['interkassa', 'paypal']);
 
         $this->middleware('construct-payments');
     }
@@ -93,5 +95,20 @@ class PurchasesController extends Controller
         return response()->json([
             'token' => \Braintree_ClientToken::generate(),
         ]);
+    }
+
+    public function paypal()
+    {
+        $ipn = new PayPal();
+        $ipn->useSandbox();
+        $verified = $ipn->verifyIPN();
+        if ($verified) {
+            Log::info('Hello');
+            Log::info(request()->all());
+        }
+
+        return response(200);
+        // Log::info('Hello');
+        // Log::info(request()->all());
     }
 }

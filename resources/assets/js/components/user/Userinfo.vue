@@ -17,19 +17,13 @@
                 balance: this.user.balance.toFixed(2),
             }
         },
-        computed: {
-            money() {
-                return this.user.balance.toFixed(2);
-            }
-        },
         created() {
             window.events.$on('increment', (argument) => {
-                this.balance += parseFloat(argument);
+                this.balance += +argument;
             });
 
             window.events.$on('decrement', (argument) => {
-                console.log(parseFloat(argument));
-                this.balance = (parseFloat(this.balance) - parseFloat(argument)).toFixed(2);
+                this.balance = (+this.balance - +argument).toFixed(2);
             });
 
             window.events.$on('profileUpdate', (argument) => {

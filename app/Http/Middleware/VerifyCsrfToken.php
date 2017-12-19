@@ -13,6 +13,7 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         'ru/interkassa/*',
-        'ru/mailgun/*'
+        'ru/mailgun/*',
+        'en/paypal/*'
     ];
 }
