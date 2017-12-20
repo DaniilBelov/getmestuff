@@ -20,14 +20,14 @@ class Payment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public static function recordTransaction($userId, $payment_id, $successful, $amount, $commission)
+    public static function recordTransaction($userId, $payment_id, $successful, $amount)
     {
          return static::create([
                     'user_id' => $userId,
                     'payment_id' => $payment_id,
-                    'successful' => $successful,
-                    'amount' => $amount,
-                    'interest' => $commission
+                    'successful' => ($successful == 'success' || $successful == 'Completed') ? 1 : 0,
+                    'amount' => round($amount * (100 / 120), 2),
+                    'interest' => round($amount * (20 / 120), 2)
                 ]);
     }
 
@@ -68,23 +68,13 @@ class Payment extends Model
             return $item->amount != 0;
         });
 
-        if ($data->isEmpty()) {
-            if ($deleted->isEmpty()) return 0;
-
-            $deleted = $deleted->sum(function ($item) {return $item->deleted_wish;});
-            return number_format($deleted, 2);
-        }
-
         $amount = $data->sum(function ($item) {return $item->amount;});
         $interest = $data->sum(function ($item) {return $item->interest;});
         $count = $data->count();
-        $deleted = $deleted->sum(function ($item) {return $item->deleted_wish;});
 
         $total = $amount + $interest;
 
         $profit = ($total) - ($total * 0.019 + (.20 * $count)) - $amount;
-
-        $profit += $deleted;
 
         return number_format($profit, 2);
     }

@@ -77,7 +77,6 @@
         @include('misc.spinner')
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKzTCqlun4x4XHknXnpZV63TVX-dHSemA&libraries=places&language={!! app()->getLocale() !!}"></script>
-        {{--  <script src="https://www.paypalobjects.com/api/checkout.js"></script>          --}}
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         <script>
             window.onload = function () { 

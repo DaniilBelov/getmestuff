@@ -66,9 +66,6 @@ Route::middleware(['auth', 'ajax'])->group(function () {
     $this->patch('/home/update', 'UserSettingsController@update');
     $this->post('/home/achievements', 'HomeController@prizes');
 
-    $this->post('/topup', 'PurchasesController@store');
-    $this->get('/braintree/token', 'PurchasesController@token');
-
     $this->post('/wishes/refresh', 'WishesController@show');
     $this->post('/wishes', 'WishesController@store')->middleware('donated');
     $this->patch('/wish/{wish}/donate', 'WishesController@update');
@@ -83,6 +80,7 @@ Route::middleware(['auth', 'ajax'])->group(function () {
     $this->get('/convert', 'WishesController@getCurrency');
 
     $this->get('/interkassa', 'PurchasesController@makeForm');
+    $this->get('/paypal', 'PurchasesController@makeForm');
 });
 
 Route::namespace('Admin\Auth')->prefix('admin')->group(function () {
@@ -218,7 +216,6 @@ Route::post('/tickets/new', 'TicketsController@store')->middleware('ajax');
 
 Route::post('/interkassa/payment', 'PurchasesController@interkassa');
 Route::post('/mailgun/aASDkasxs6232b1e', 'TicketsController@mailgun');
-
 Route::post('/paypal/success', 'PurchasesController@paypal');
 
 Route::get('/9gLNPWm900/{number_of_wishes}', 'WishesController@getSet');
