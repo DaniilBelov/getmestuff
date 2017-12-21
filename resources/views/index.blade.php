@@ -3,6 +3,7 @@
 @section ('body-class', 'index')
 
 @section ('content')
+    <span itemprop="name" style="display: none">GetMeStuff</span>
     <main class="main" id="pp">
         <section class="section main pos-a" style="z-index: 5">
             <div class="main main-section">
@@ -11,14 +12,14 @@
         </section>
         <section class="section main">
             <div class="col-12 mw mh flex between m-auto s-section">
-                <img src="{{ asset('images/index/how.png') }}">
+                <img itemprop="image" alt="Truck Delivering wishes" src="{{ asset('images/index/how.png') }}">
                 @include("content.$lang.index.how")
             </div>
         </section>
         <section class="section main">
             <div class="col-12 mw mh flex between m-auto s-section">
                 @include("content.$lang.index.who")
-                <img src="{{ asset('images/index/who.png') }}">
+                <img itemprop="image" alt="Drawn Image of Founder" src="{{ asset('images/index/who.png') }}">
             </div>
         </section>
         <section class="section main">

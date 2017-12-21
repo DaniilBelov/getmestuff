@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class DocumentsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index($document)
     {
         $eng = storage_path("app/documents/{$document}/en.md");
@@ -24,12 +19,6 @@ class DocumentsController extends Controller
         return view('admin.docs', compact('eng', 'rus', 'document'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         Storage::put("documents/{$request->type}/{$request->lang}.md", $request->document);

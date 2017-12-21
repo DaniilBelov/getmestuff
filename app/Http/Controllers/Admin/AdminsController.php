@@ -20,25 +20,18 @@ class AdminsController extends Controller
         $wishes_data = $wish->getData();
         $payment_data = $payment->getData();
 
-        if ($payment_data['this_month'] == 0) {
-            $net_flow = 0;
-        } else {
+        if ($payment_data['this_month'] == 0) $net_flow = 0;
+        else {
             if ($wishes_data['outflow'] == 0) $net_flow = 100;
-            else {
-                $net_flow = number_format(
-                    100 - ($wishes_data['outflow'] * 100 / $payment_data['this_month']), 2
-                );
-            }
+            else $net_flow = number_format(100 - ($wishes_data['outflow'] * 100 / $payment_data['inflow']), 2);
         }
 
         $cash_flow = [
-            'inflow' => $payment_data['this_month'],
+            'inflow' => $payment_data['inflow'],
             'outflow' => $wishes_data['outflow'],
             'new_flow' => $net_flow,
             'change' => $payment_data['change']
         ];
-
-        unset($wishes_data['outflow']);
 
         return view('admin.dashboard', [
             'country_data' => $country->getVisits(),

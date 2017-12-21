@@ -1,6 +1,21 @@
 .about
     overflow: scroll
 
+    header, footer
+        background-color: black
+        border-color: $white
+        background-image: url('../img/45deg2.png')
+        color: $white
+
+        .footer-content
+            color: transparentize($white, 0.3)
+
+        .mobile
+            color: $white
+
+    nav a
+        color: $white
+
     main
         height: 100vh
         width: 100%
@@ -22,13 +37,13 @@
             top: 100%
 
         &:nth-child(1)
-            background-color: $c-primary
+            background-color: #6610f2
 
         &:nth-child(2)
             background-color: $dark-red
 
         &:nth-child(3)
-            background-color: $green
+            background-color: lighten(#00aedb, 5%)
 
     h2
         font-family: $open-s
@@ -74,13 +89,13 @@
             &:before
                 content: ''
                 position: absolute
-                width: 2px
+                width: 1px
                 background-color: $white
                 height: 1000%
                 left: 50%
                 bottom: 100%
                 z-index: 2
-                margin-left: -1px
+                margin-left: -0.5px
 
 
         .circle.below
@@ -89,10 +104,10 @@
             &:after
                 content: ''
                 position: absolute
-                width: 2px
+                width: 1px
                 background-color: $white
                 height: 10000%
                 left: 50%
                 top: 100%
                 z-index: 2
-                margin-left: -1px
+                margin-left: -0.5px

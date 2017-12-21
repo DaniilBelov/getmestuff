@@ -44,7 +44,7 @@
         </script>
     </head>
     
-    <body class="@yield ('body-class')">
+    <body itemscope itemtype="http://schema.org/Organization" class="@yield ('body-class')">
         <div id="fb-root"></div>
         <script>
             (function(d, s, id){

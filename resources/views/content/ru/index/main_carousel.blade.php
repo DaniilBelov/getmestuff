@@ -1,5 +1,5 @@
 <div class="flex center vertical pos-a pos-center w8 text-wrapper">
-    <img class="big-logo mw m-auto" src="{{ asset('images/index/logo2.png') }}">
+    <img alt="GetMeStuff World Logo" itemprop="image" class="big-logo mw m-auto" src="{{ asset('images/index/logo2.png') }}">
     <div class="owl-theme owl-carousel">
         <div class="item">
             <p class="mw t-align">Помогаем вам достичь ваших целей</p>

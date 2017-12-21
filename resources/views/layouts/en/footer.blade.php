@@ -1,13 +1,11 @@
 <footer class="mw flex around">
     <div class='col-12 mw mh flex between footer'>
         <div class="footer-content flex center">
-            <a target="_blank" href="/{{ $lang }}/terms">Terms and Conditions</a>
+            <a itemprop="url" target="_blank" href="/{{ $lang }}/terms">Terms and Conditions</a>
             <span role="presentation" aria-hidden="true"> · </span>
-            <a target="_blank" href="/{{ $lang }}/privacy">Privacy Policy</a>
+            <a itemprop="url" target="_blank" href="/{{ $lang }}/privacy">Privacy Policy</a>
             <span role="presentation" aria-hidden="true"> · </span>
-            <a target="_blank" href="/{{ $lang }}/rules">Rules</a>
-            <span role="presentation" aria-hidden="true"> · </span>
-            <a target="_blank" href="/{{ $lang }}/faq">FAQ</a>
+            <a itemprop="url" target="_blank" href="/{{ $lang }}/faq">FAQ</a>
             <span role="presentation" aria-hidden="true"> · </span>
             <p>{{ date('Y') }} <i class="fa fa-copyright" aria-hidden="true"></i> GetMeStuff. All rights reserved.</p>
         </div>

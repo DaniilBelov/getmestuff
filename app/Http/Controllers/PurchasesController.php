@@ -40,11 +40,11 @@ class PurchasesController extends Controller
             'cmd' => '_xclick',
             'amount' => $amount,
             'business' => 'getmestuff.business-facilitator@gmail.com',
-            'notify_url' => 'http://8f9aeb15.ngrok.io/en/paypal/success',
+            'notify_url' => 'http://aa4f7b4c.ngrok.io/en/paypal/success',
             'currency_code' => 'USD',
             'no_shipping' => '1',
             'custom' => $user_id,
-            'return' => 'http://8f9aeb15.ngrok.io/home',
+            'return' => 'http://aa4f7b4c.ngrok.io/home',
             'item_name' => 'GetMeStuff | Account Top Up'
         ];
     }
@@ -63,9 +63,9 @@ class PurchasesController extends Controller
 
     public function interkassa(Request $request)
     {
-        if ($data['ik_cur'] != 'USD') return response(['status' => 'Only USD'], 422);
+        if ($request->ik_cur != 'USD') return response(['status' => 'Only USD'], 422);
 
-        $user = User::find($data['ik_x_user']);
+        $user = User::find($request->ik_x_user);
         Payment::recordTransaction($user->id, $request->ik_inv_id, $request->ik_inv_st, $request->ik_am);
 
         if ($request->ik_inv_id == 'success') $user->increment('balance', ($request->ik_am * (100 / 120)));
@@ -80,12 +80,12 @@ class PurchasesController extends Controller
         $verified = $ipn->verifyIPN();
 
         if ($verified) {
-            if ($request->receiver_email != 'getmestuff.business-facilitator@gmail.com') return response(200);
+            // if ($request->receiver_email != 'getmestuff.business-facilitator@gmail.com') return response(200);
 
             $user = User::find($request->custom);
-            Payment::recordTransaction($user->id, $request->txn_id, $request->payment_status, $request->payment_gross);
+            Payment::recordTransaction($user->id, $request->txn_id, $request->payment_status, $request->mc_gross);
 
-            if ($request->payment_status == 'Completed') $user->increment('balance', ($request->payment_gross * (100 / 120)));
+            if ($request->payment_status == 'Completed') $user->increment('balance', ($request->mc_gross * (100 / 120)));
         }
 
         return response(200);

@@ -34,48 +34,42 @@ class Payment extends Model
     public function getData()
     {
         $payments = $this->where('successful', true)->get();
-        $change = $change = getPercentageChange($payments);
-
-        $total = $this->calculateProfit($payments);
-        $this_month = $this->calculateProfit($payments, 'month');
-        $today = $this->calculateProfit($payments, 'today');
+        $change = getPercentageChange($payments);
 
         return [
-            'total' => $total,
-            'this_month' => $this_month,
-            'today' => $today,
+            'total' => $this->calculateProfit($payments),
+            'this_month' => $this->calculateProfit($payments, 'month'),
+            'today' => $this->calculateProfit($payments, 'today'),
+            'inflow' => $this->calculateInflow($payments),
             'change' => $change
         ];
     }
 
     protected function calculateProfit($data, $when = false)
     {
-        if ($when == 'month') {
-            $data = $data->filter(function ($item) {
-                return $item->created_at->format('m-Y') == Carbon::now()->format('m-Y');
-            });
-        } elseif ($when == 'today') {
-            $data = $data->filter(function ($item) {
-                return $item->created_at->format('d-m-Y') == Carbon::now()->format('d-m-Y');
-            });
-        }
+        if ($when == 'month') $data = $this->month($data);
+        elseif ($when == 'today') $data = $this->today($data);
 
-        $deleted = $data->filter(function ($item) {
-            return !is_null($item->deleted_wish);
-        });
-
-        $data = $data->filter(function ($item) {
-            return $item->amount != 0;
-        });
-
-        $amount = $data->sum(function ($item) {return $item->amount;});
         $interest = $data->sum(function ($item) {return $item->interest;});
-        $count = $data->count();
 
-        $total = $amount + $interest;
+        return number_format($interest, 2);
+    }
 
-        $profit = ($total) - ($total * 0.019 + (.20 * $count)) - $amount;
+    protected function calculateInflow($data)
+    {
+        $data = $this->month($data);
+        $total = $data->sum(function ($item) {return $item->interest;}) + $data->sum(function ($item) {return $item->amount;});
 
-        return number_format($profit, 2);
+        return number_format($total, 2);
+    }
+
+    protected function month($data)
+    {
+        return $data->filter(function ($item) {return $item->created_at->format('m-Y') == Carbon::now()->format('m-Y');});
+    }
+
+    protected function today($data)
+    {
+        return $data->filter(function ($item) {return $item->created_at->format('d-m-Y') == Carbon::now()->format('d-m-Y');});
     }
 }

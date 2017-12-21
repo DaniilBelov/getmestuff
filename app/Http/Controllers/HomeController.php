@@ -15,6 +15,7 @@ use App\Wish;
 use App\Prize;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use App\Payment;
 
 class HomeController extends Controller
 {
@@ -117,8 +118,7 @@ class HomeController extends Controller
         // preg_match_all('!\d+!', $data, $matches);
 
         // dd($matches);
-
-        $data = file_get_contents('php://input');
-        dd($data);
+        $payment = new Payment();
+        dd(\Cache::get("terms.en"));
     }
 }
