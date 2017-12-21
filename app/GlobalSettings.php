@@ -27,8 +27,6 @@ class GlobalSettings extends Model
 
     public static function getGeneralSetting()
     {
-        return static::query()->whereIn('setting', [
-            'emails', 'social_media', 'banned_words', 'state'
-        ])->get();
+        return static::query()->whereIn('setting', ['emails', 'social_media', 'banned_words', 'state'])->get();
     }
 }

@@ -23,7 +23,6 @@ trait RefactorData
             if (isset($data['type'])) $data = $this->typeSlug($data);
             if (isset($data['priority'])) $data = $this->prioritySlug($data);
             if (isset($data['renew'])) $data = $this->achievementSlug($data);
-            if (isset($data['current_amount'])) $data = $this->getFullAmount($data);
 
             return $data;
         });
@@ -104,13 +103,6 @@ trait RefactorData
         } else {
             $data['priority_slug'] = 'Red';
         }
-
-        return $data;
-    }
-
-    protected function getFullAmount($data)
-    {
-        $data['total_current_amount'] = $data['initial_amount'] + $data['current_amount'];
 
         return $data;
     }

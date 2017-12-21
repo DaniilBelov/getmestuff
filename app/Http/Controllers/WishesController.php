@@ -118,7 +118,7 @@ class WishesController extends Controller
     {
         if ($wish->user_id == auth()->user()->id) {
             ReturnMoney::dispatch($wish->donated);
-            // $wish->delete();
+            $wish->delete();
             return response(['status' => 'Wish has been deleted']);
         }
 

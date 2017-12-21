@@ -15,8 +15,6 @@ class OnlyAjax
      */
     public function handle($request, Closure $next)
     {
-//        if (!$request->ajax()) return response('Forbidden.', 403);
-
         if (!$request->ajax()) return abort(403, 'Unauthorized action');
         return $next($request);
     }

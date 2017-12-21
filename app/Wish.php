@@ -67,13 +67,8 @@ class Wish extends Model
         $this->current_amount += $value;
         $donated = $this->donated;
 
-        if (is_null($donated)) {
-            $donated = [
-                "amount.$value.user.$user.donated"
-            ];
-        } else {
-            array_push($donated, "amount.$value.user.$user.donated");
-        }
+        if (is_null($donated)) $donated = ["amount.$value.user.$user.donated"];
+        else array_push($donated, "amount.$value.user.$user.donated");
 
         $this->donated = $donated;
 
@@ -91,9 +86,7 @@ class Wish extends Model
                 (donated IS NULL OR donated NOT LIKE '%user.$id.donated%')"
             );
 
-        if ($ids) {
-            $wishes = $wishes->whereNotIn('id', $ids);
-        }
+        if ($ids) $wishes = $wishes->whereNotIn('id', $ids);
         
         return $wishes->limit($limit)->get();
     }
@@ -110,10 +103,10 @@ class Wish extends Model
             ->get();
     }
 
-    public function scopeFilter($query, $filters)
-    {
-        return $filters->apply($query);
-    }
+    // public function scopeFilter($query, $filters)
+    // {
+    //     return $filters->apply($query);
+    // }
 
     public function getData()
     {
@@ -136,13 +129,8 @@ class Wish extends Model
     {
         $total = $wishes->count();
 
-        $completed = $wishes->filter(function ($item) {
-            return $item->completed == 1;
-        })->count();
-
-        $in_progress = $wishes->filter(function ($item) {
-            return $item->completed == 0;
-        })->count();
+        $completed = $wishes->filter(function ($item) {return $item->completed == 1;})->count();
+        $in_progress = $wishes->filter(function ($item) {return $item->completed == 0;})->count();
 
         return [$total, $completed, $in_progress];
     }

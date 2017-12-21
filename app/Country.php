@@ -12,7 +12,6 @@ class Country extends Model
     {
         if (!$this->checkIfCookieExists()) {
             $ip = request()->ip();
-//            $ip = request()->server('HTTP_X_FORWARDED_FOR');
 
             $data = ip_info($ip);
 

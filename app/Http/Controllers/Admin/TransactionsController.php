@@ -12,16 +12,14 @@ class TransactionsController extends Controller
 {
     use RefactorData;
 
-    protected $visibleForAdmins = [
-        'braintree_id'
-    ];
+    protected $visibleForAdmins = ['payment_id'];
 
     public function all(Payment $payment)
     {
         return Datatables::of(
             $this->refactorData(
                 $this->getPayments($payment, [
-                    'id', 'user_id', 'braintree_id', 'successful', 'amount', 'interest', 'created_at'
+                    'id', 'user_id', 'payment_id', 'successful', 'amount', 'interest', 'created_at'
                 ])
             )
         )->make(true);
@@ -32,10 +30,8 @@ class TransactionsController extends Controller
         return Datatables::of(
             $this->refactorData(
                 $this->getPayments($payment, [
-                    'id', 'user_id', 'braintree_id', 'successful', 'amount', 'interest', 'created_at'
-                ], [
-                    ['successful', false]
-                ])
+                    'id', 'user_id', 'payment_id', 'successful', 'amount', 'interest', 'created_at'
+                ], [['successful', false]])
             )
         )->make(true);
     }

@@ -3,7 +3,7 @@
           post="/admin/api/wishes"
           :columns="[
                         { data: 'url' },
-                        { data: 'total_current_amount' },
+                        { data: 'current_amount' },
                         { data: 'amount_needed' },
                         { data: 'address.address_line' },
                         { data: 'address.city' },
@@ -13,7 +13,7 @@
                      ]"
           :radio="['processed', 'completed']"
           :checkboxes="['processed']"
-          :skip="['id', 'total_current_amount', 'item', 'translations']">
+          :skip="['id', 'current_amount', 'item', 'translations']">
     <template slot="header">
         <tr>
             <th rowspan="2">URL</th>

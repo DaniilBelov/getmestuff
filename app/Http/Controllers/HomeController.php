@@ -49,21 +49,11 @@ class HomeController extends Controller
         $achievements = Achievement::all();
         $prizes = Prize::all();
         $wishes = $this->getUserWishes();
-        $settings = GlobalSettings::getSettingsGroup(
-            ['disable_achievements', 'commissions', 'turn_on/of_payment_systems']
-        );
+        $settings = GlobalSettings::getSettingsGroup(['disable_achievements', 'commissions', 'turn_on/of_payment_systems']);
 
         $reasons = [
-            'en' => [
-                'Fixing Bugs',
-                'Updating',
-                'Back Soon'
-            ],
-            'ru' => [
-                'Исправление ошибок',
-                'Обновление',
-                'Скоро вернемся'
-            ]
+            'en' => ['Fixing Bugs', 'Updating', 'Back Soon'],
+            'ru' => ['Исправление ошибок', 'Обновление', 'Скоро вернемся']
         ];
 
         return view('userpage', [

@@ -25,7 +25,7 @@ class WishesController extends Controller
         return Datatables::of(
             $this->refactorData(
                 $this->getWishes($wish, [
-                    'id', 'initial_amount', 'current_amount', 'amount_needed', 'validated', 'completed', 'created_at'
+                    'id', 'current_amount', 'amount_needed', 'validated', 'completed', 'created_at'
                 ])
             )
         )->make(true);
@@ -56,7 +56,7 @@ class WishesController extends Controller
         return Datatables::of(
             $this->refactorData(
                 $this->getWishes($wish, [
-                    'id', 'url', 'initial_amount', 'current_amount', 'amount_needed',
+                    'id', 'url', 'current_amount', 'amount_needed',
                     'address', 'processed'
                 ], false, [
                     ['completed', true],
@@ -99,16 +99,8 @@ class WishesController extends Controller
     protected function getWishes(Wish $wish, $select, $with = false, $where = false)
     {
         $wish = $wish->select($select)->with('translations');
-
-        if ($with) {
-            $wish = $wish->with(['user' => function ($query) use ($with) {
-                $query->select($with);
-            }]);
-        }
-
-        if ($where) {
-            $wish = $wish->where($where);
-        }
+        if ($with) $wish = $wish->with(['user' => function ($query) use ($with) {$query->select($with);}]);
+        if ($where) $wish = $wish->where($where);
 
         return $wish->get()->makeVisible($this->visibleForAdmins);
     }

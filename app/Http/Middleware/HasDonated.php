@@ -17,9 +17,7 @@ class HasDonated
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->donated != 1) {
-            throw new \Exception('You cannot publish a wish yet');
-        }
+        if ($request->user()->donated != 1) throw new \Exception('You cannot publish a wish yet');
         return $next($request);
     }
 }

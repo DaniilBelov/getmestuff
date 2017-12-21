@@ -19,14 +19,9 @@ class UnderConstruction
         $state = GlobalSettings::getSettings('state')->data['on'];
         $construct = strpos($request->path(), 'construct');
 
-        if (strpos($request->path(), 'admin') !== false) {
-            return $next($request);
-        } elseif ($state) {
-            return $next($request);
-        } elseif (!$state && $construct !== false) {
-            return $next($request);
-        } else {
-            return redirect('/'.app()->getLocale().'/construction');
-        }
+        if (strpos($request->path(), 'admin') !== false) return $next($request);
+        elseif ($state) return $next($request);
+        elseif (!$state && $construct !== false) return $next($request);
+        else return redirect('/'.app()->getLocale().'/construction');
     }
 }
