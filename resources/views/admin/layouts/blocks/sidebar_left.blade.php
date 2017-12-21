@@ -117,7 +117,7 @@
             </li>
             <li>
                 <a href="javascript:void(0);" class="waves-effect">
-                    <i class="linea-icon linea-basic fa-fw" data-icon="Y"></i>
+                    <i class="linea-icon linea-basic fa-fw" data-icon="m"></i>
                     <span class="hide-menu">
                         Documents
                         <span class="fa arrow"></span>
