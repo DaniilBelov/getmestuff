@@ -8,6 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use App\Notifications\WishCompleted;
 
 class NotifyUser implements ShouldQueue
 {
@@ -37,5 +38,8 @@ class NotifyUser implements ShouldQueue
     {
         $this->wish->user->increment('amount_received', $this->amount);
         $this->wish->user->notify(new UserHasDonated($this->wish, $this->amount));
+
+        if ($this->wish->current_amount == $this->wish->amount_needed)
+            $this->wish->user->notify(new WishCompleted($this->wish));
     }
 }

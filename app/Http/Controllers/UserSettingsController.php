@@ -14,21 +14,13 @@ class UserSettingsController extends Controller
 
     public function update (SettingsForm $form)
     {
-        try {
-            $form->save();
-        } catch (\Exception $e) {
-            return response()->json(
-                ['message' => [$e->getMessage()]], 401
-            );
-        }
-
+        $form->save();
         return response(['status' => 'Settings Updated!']);
     }
 
     public function verify ($token, User $user)
     {
         $user->settings()->updateEmail($token);
-
         return redirect('/home');
     }
 }

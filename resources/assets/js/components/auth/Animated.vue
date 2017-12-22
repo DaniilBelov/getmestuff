@@ -17,10 +17,16 @@
 
 <script>
     export default {
-        props: [ 'type', 'trigger', 'name', 'id', 'minlength', 'equalto' ],
+        props: [ 'type', 'trigger', 'name', 'id', 'minlength', 'equalto', 'old' ],
         data() {
             return {
                 hasValue: false
+            }
+        },
+        mounted() {
+            if (this.old != undefined && this.old != '') {
+                document.querySelector(`#${this.id}`).value = this.old;
+                this.hasValue = true;
             }
         },
         methods: {

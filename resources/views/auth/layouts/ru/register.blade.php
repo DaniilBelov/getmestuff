@@ -8,15 +8,15 @@
             @endif
             <div class="top-row flex start mw">
                 <div class="pos-r w45">
-                    <animated name="first_name" id="firstname" trigger="change" type="text">Имя</animated>
+                    <animated old="{{ old('first_name') }}" name="first_name" id="firstname" trigger="change" type="text">Имя</animated>
                 </div>
                 <div class="pos-r w45">
-                    <animated name="last_name" id="lastname" trigger="change" type="text">Фамилия</animated>
+                    <animated old="{{ old('last_name') }}" name="last_name" id="lastname" trigger="change" type="text">Фамилия</animated>
                 </div>
             </div>
             <div class="mw">
                 <div class="pos-r mw">
-                    <animated name="email" id="email" trigger="change" type="email">Email</animated>
+                    <animated old="{{ old('email') }}" name="email" id="email" trigger="change" type="email">Email</animated>
                 </div>
                 <div class="pos-r mw">
                     <animated name="password" minlength="8" id="pass" trigger="change" type="password">Пароль</animated>

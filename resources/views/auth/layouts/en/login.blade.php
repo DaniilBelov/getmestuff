@@ -5,7 +5,7 @@
             {{ csrf_field() }}
             <div class="mw">
                 <div class="pos-r mw">
-                    <animated name="email" id="loginmail" trigger="change" type="email">Email Address</animated>
+                    <animated old="{{ old('email') }}" name="email" id="loginmail" trigger="change" type="email">Email Address</animated>
                 </div>
                 <div class="pos-r mw">
                     <animated name="password" id="loginpass" trigger="change" type="password">Password</animated>

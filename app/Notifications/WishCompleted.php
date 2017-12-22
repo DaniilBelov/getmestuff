@@ -31,7 +31,7 @@ class WishCompleted extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['mail'];
     }
 
     /**
@@ -42,22 +42,10 @@ class WishCompleted extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
+        $subject = ($this->wish->user->locale == 'en') ? 'Wish Completed' : 'Желание Выполненно';
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            'wish' => $this->wish->item
-        ];
+        return (new MailMessage)
+            ->subject($subject)
+            ->view("email.{$this->wish->user->locale }.completed", ['wish' => $this->wish]);
     }
 }

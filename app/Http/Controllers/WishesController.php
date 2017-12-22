@@ -97,13 +97,7 @@ class WishesController extends Controller
             );
         }
 
-        try {
-            $form->save($wish);
-        } catch (\Exception $e) {
-            return response()->json(
-                ['message' => [$e->getMessage()]], 422
-            );
-        }
+        $form->save($wish);
 
         return response(['status' => 'Donated successfully']);
     }

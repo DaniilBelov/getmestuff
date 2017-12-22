@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Mockery\CountValidator\Exception;
 use App\Prize;
+use App\Exceptions\MyException;
 
 class PrizesForm extends FormRequest
 {
@@ -35,21 +36,14 @@ class PrizesForm extends FormRequest
         $prize = Prize::find($this->selected);
 
         $quantity = $this->quantity;
-        if ($this->selected == 3) {
-            $quantity = 1;
-        }
-
+        if ($this->selected == 3) $quantity = 1;
         $price = $prize->price * $quantity;
 
-        if ($price > $this->user()->points) {
-            $message = getErrorMessage('You don\'t have enough point.', 'У вас не достаточно очков');
-            throw new Exception($message);
-        }
+        if ($price > $this->user()->points) 
+            throw new MyException(['You don\'t have enough point.', 'У вас не достаточно очков']);
 
-        if ($this->selected == 3 && $this->user()->allowed_wishes != 0) {
-            $message = getErrorMessage('You already have maximum limit.', 'У вас уже максимальный лимит.');
-            throw new \Exception($message);
-        }
+        if ($this->selected == 3 && $this->user()->allowed_wishes != 0)
+            throw new MyException('You already have maximum limit.', 'У вас уже максимальный лимит.');
 
         $column = $prize->user_column;
 

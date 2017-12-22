@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Exceptions\MyException;
 
 class SettingsForm extends FormRequest
 {
@@ -51,14 +52,12 @@ class SettingsForm extends FormRequest
 
     public function save()
     {
-        if (!(Hash::check($this->current_password, $this->user()->password))) {
-            throw new \Exception('Password is incorrect');
-        }
+        if (!(Hash::check($this->current_password, $this->user()->password)))
+            throw new MyException(['Password is incorrect', 'Неверный пароль']);
 
         $data = $this->intersect(['first_name', 'last_name', 'email', 'password']);
 
         if (isset($data['email']) && $data['email'] == $this->user()->email) unset($data['email']);
-
         if (isset($data['password'])) $data['password'] = bcrypt($data['password']);
 
         $this->user()->settings()->update($data);

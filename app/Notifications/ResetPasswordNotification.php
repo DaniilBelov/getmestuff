@@ -46,24 +46,11 @@ class ResetPasswordNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        if ($this->isAdmin) {
-            $url = url(config('app.url').route('password.reset.admin', $this->token, false));
-        } else {
-            $url = url(config('app.url').route('password.reset', $this->token, false));
-        }
-        return (new MailMessage)->view("email.{$this->locale}.reset", ['url' => $url]);
-    }
+        if ($this->isAdmin) $url = url(config('app.url').route('password.reset.admin', $this->token, false));
+        else $url = url(config('app.url').route('password.reset', $this->token, false));
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+        $subject = ($this->locale == 'en') ? 'Password Reset' : 'Восстановление пароля';
+        
+        return (new MailMessage)->view("email.{$this->locale}.reset", ['url' => $url]);
     }
 }

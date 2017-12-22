@@ -6,6 +6,7 @@ use App\Events\UserHasDonated;
 use App\Jobs\NotifyUser;
 use App\Wish;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Exceptions\MyException;
 
 class DonateForm extends FormRequest
 {
@@ -34,17 +35,14 @@ class DonateForm extends FormRequest
     public function save($wish)
     {
         if ($wish->completed == 1) {
-            $message = getErrorMessage(
-                'This wish is already completed, please choose another or refresh the page.',
-                'Это желание уже исполнено, пожалуйста выберете другое или перезагрузить страницу.');
-            throw new \Exception($message);
+            throw new MyException(['This wish is already completed, please choose another or refresh the page.',
+                                    'Это желание уже исполнено, пожалуйста выберете другое или перезагрузить страницу.'
+                                ]);
         }
         $diff = ($wish->amount_needed) - ($wish->current_amount);
 
-        if (($this->amount > $this->user()->balance) || ($this->amount > $diff))
-        {
-            $message = getErrorMessage('You cannot donate this amount.', 'Вы не можете пожертвовать эту сумму.');
-            throw new \Exception($message);
+        if (($this->amount > $this->user()->balance) || ($this->amount > $diff)) {
+            throw new MyException(['You cannot donate this amount.', 'Вы не можете пожертвовать эту сумму.']);
         }
 
         if ($this->user()->id !== $wish->user_id) event(new UserHasDonated($this->user(), $this->amount));

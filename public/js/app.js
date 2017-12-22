@@ -38241,11 +38241,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['type', 'trigger', 'name', 'id', 'minlength', 'equalto'],
+    props: ['type', 'trigger', 'name', 'id', 'minlength', 'equalto', 'old'],
     data: function data() {
         return {
             hasValue: false
         };
+    },
+    mounted: function mounted() {
+        if (this.old != undefined && this.old != '') {
+            document.querySelector('#' + this.id).value = this.old;
+            this.hasValue = true;
+        }
     },
 
     methods: {

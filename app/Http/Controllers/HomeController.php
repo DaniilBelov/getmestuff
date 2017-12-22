@@ -37,9 +37,7 @@ class HomeController extends Controller
     public function index()
     {
         $refresh = cache(User::cacheKey());
-        if (!is_null($refresh) && $refresh->lte(Carbon::now())) {
-            event(new AchievementsOutdated(auth()->user()));
-        }
+        if (!is_null($refresh) && $refresh->lte(Carbon::now())) event(new AchievementsOutdated(auth()->user()));
 
         $random = Wish::getWishes(auth()->user()->id, 1);
 
@@ -69,13 +67,7 @@ class HomeController extends Controller
 
     public function prizes(PrizesForm $form)
     {
-        try {
-            $form->save();
-        } catch (\Exception $e) {
-            return response()->json(
-                ['message' => [$e->getMessage()]], 422
-            );
-        }
+        $form->save();
 
         return response(['status' => 'Points redeemed successfully']);
     }

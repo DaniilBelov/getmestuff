@@ -11,8 +11,7 @@ class UserHasDonated extends Notification
 {
     use Queueable;
 
-    protected $wish;
-    protected $amount;
+    protected $wish, $amount;
 
 
     /**
@@ -39,20 +38,6 @@ class UserHasDonated extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    public function toMail($notifiable)
-    {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
-
-    /**
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
@@ -61,7 +46,7 @@ class UserHasDonated extends Notification
     public function toArray($notifiable)
     {
         return [
-            'wish' => $this->wish->item,
+            'wish' => $this->wish->translate('en')->item,
             'amount' => $this->amount
         ];
     }

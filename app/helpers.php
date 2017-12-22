@@ -231,42 +231,32 @@ function getConvertedValue($amount, $currency) {
 }
 
 function convertCurrency($amount, $currency) {
+    $rates = json_decode(file_get_contents('https://alfabank.ru/ext-json/0.2/exchange/cash'), true)['response']['data'];
     $data = collect([]);
-    if ($currency == 'usd') {
-        return $amount;
-    } else if ($currency == 'rub') {
-        ['usd' => $usd] = cache('currency');
+
+    if ($currency == 'usd') return $amount;
+    elseif ($currency == 'rub') {
+        ['usd' => $usd] = $rates;
 
         collect($amount)->each(function ($item) use ($data, $usd) {
             $data->push(round($item / ($usd[1]['value']), 2));
         });
-
-        return $data;
     } else {
-        ['usd' => $usd] =  cache('currency');
-        [$currency => $currency] = cache('currency');
+        ['usd' => $usd] =  $rates;
+        [$currency => $currency] = $rates;
 
         collect($amount)->each(function ($item) use ($data, $usd, $currency) {
             $data->push(round(($item * $currency[0]['value']) / ($usd[1]['value']), 2));
         });
-
-        return $data;
     }
+
+    return $data;
 }
 
-function cacheCurrency() {
-    $new_data = json_decode(file_get_contents('https://alfabank.ru/ext-json/0.2/exchange/cash'), true);
-    $new_data =  $new_data['response']['data'];
-    $new_date = \Carbon\Carbon::parse($new_data['usd'][0]['date']);
-    
-    $old_data = cache('currency');
+function getRate() {
+    ['response' => ['data' => $data]] = json_decode(file_get_contents('https://alfabank.ru/ext-json/0.2/exchange/cash'), true);
 
-    if (is_null($old_data)) \Cache::forever('currency', $new_data);
-
-    $old_date = \Carbon\Carbon::parse($old_data['usd'][0]['date']);
-    $now = \Carbon\Carbon::now('Europe/Moscow');
-
-    if ($old_date->lt($new_date) && $new_date->lte($now)) \Cache::forever('currency', $new_data);
+    return number_format($data['usd'][0]['value'], 2);
 }
 
 function getTimeZone($time) {
