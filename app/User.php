@@ -24,11 +24,7 @@ class User extends Authenticatable
         static::created(function ($user) {
             $key = sprintf("user.%s", $user->id);
             \Cache::forever($key, Carbon::now()->addMonth());
-
-            if ($user->id <= 10) {
-                $user->donated = true;
-                $user->save();
-            }
+            $this->prize($user);
 
            // Country::updateCountry($user->id);
         });
@@ -137,5 +133,28 @@ class User extends Authenticatable
     public static function unban($email)
     {
         static::query()->where('email', $email)->update(['status' => 1]);
+    }
+
+    public function prize($user)
+    {
+        $points = 200;
+
+        switch (true) {
+            case $user->id <= 7:
+                $user->donated = 1;
+                $points += 100;
+            case $user->id <= 12:
+                $user->number_of_wishes = 2;
+                $points += 100;
+            case $user->id <= 52:
+                $user->priority = 1;
+                $points += 100;
+            default:
+                break;
+        }
+        
+        $user->points = $points;
+        $user->save();
+        return;
     }
 }

@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Wish;
+use Carbon\Carbon;
+use App\Jobs\OneMonth;
 
 class CheckWishes extends Command
 {
@@ -30,6 +32,16 @@ class CheckWishes extends Command
      */
     public function handle()
     {
-        $this->wish->where('completed', 0)->update(['completed' => 1]);
+        $priority = rand(5, 15);
+        $data = $this->wish->where([
+            ['completed', 0],
+            ['created_at', '<=', Carbon::now()->subMonth()],
+            ['priority', '<', 5]
+        ])->get();
+
+        $data->each(function ($item) use ($priority) {
+            $item->increment('priority', $priority);
+            dispatch(new OneMonth($item, $priority));
+        });
     }
 }

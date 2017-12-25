@@ -3,19 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Achievement;
-use App\Bot\Bot;
-use App\Bots\Amazon;
 use App\Events\AchievementsOutdated;
 use App\GlobalSettings;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Http\Requests\PrizesForm;
 use App\User;
 use App\Wish;
 use App\Prize;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Log;
-use App\Payment;
 
 class HomeController extends Controller
 {
@@ -86,21 +81,23 @@ class HomeController extends Controller
 
     public function test()
     {
-        // $bot = new Amazon();
-        // $bot->search('ipad mini');
-        // $bot->search('google pixel');
+        $id = 70;
 
-        // $client = new Client();
+        $points = 200;
 
-        // $result = $client->get("https://www.svyaznoy.ru/catalog/phone/224/3808979")->getBody()->getContents();
+        switch (true) {
+            case $id <= 5:
+                $points += 100;
+            case $id <= 10:
+                $points += 100;
+            case $id <= 50:
+                $points += 100;
+            case $id <= 100:
+                $points += 0;
+            default:
+                break;
+        }
 
-        // dd($result);
-
-        // $data = '<span class="b-price">78&nbsp;990&nbsp;<span class="h-rouble">руб.</span></span>';
-        // preg_match_all('!\d+!', $data, $matches);
-
-        // dd($matches);
-        $payment = new Payment();
-        dd(\Cache::get("terms.en"));
+        return $points;
     }
 }
