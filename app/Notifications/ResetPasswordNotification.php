@@ -38,12 +38,6 @@ class ResetPasswordNotification extends Notification
         return ['mail'];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
     public function toMail($notifiable)
     {
         if ($this->isAdmin) $url = url(config('app.url').route('password.reset.admin', $this->token, false));
@@ -51,6 +45,6 @@ class ResetPasswordNotification extends Notification
 
         $subject = ($this->locale == 'en') ? 'Password Reset' : 'Восстановление пароля';
         
-        return (new MailMessage)->view("email.{$this->locale}.reset", ['url' => $url]);
+        return (new MailMessage)->view("email.{$this->locale}.reset", ['url' => $url])->subject($subject);
     }
 }
