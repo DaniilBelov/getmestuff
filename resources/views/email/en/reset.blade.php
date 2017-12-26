@@ -3,7 +3,7 @@
 @section('content')
     <tr>
         <td>
-            <p style="margin-top:0px; color:#bbbbbb;"><b>Here are your password reset instructions.</b></p>
+            <p style="margin-top:0px;"><b>Here are your password reset instructions.</b></p>
         </td>
     </tr>
     <tr>

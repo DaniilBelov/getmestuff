@@ -3,7 +3,7 @@
 @section('content')
     <tr>
         <td>
-            <p style="margin-top:0px; color:#bbbbbb;"><b>Пожалуйста следуйте инструкциям что бы поменять пароль.</b></p>
+            <p style="margin-top:0px;"><b>Пожалуйста следуйте инструкциям что бы поменять пароль.</b></p>
         </td>
     </tr>
     <tr>
