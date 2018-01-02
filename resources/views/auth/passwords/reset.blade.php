@@ -2,6 +2,10 @@
 
 @section ('title', ' | Reset')
 
+@section('seo')
+
+@endsection
+
 @section ('html-class', 'overflow-visible user-bg password-reset')
 
 @section ('body-class', 'overflow-visible')
