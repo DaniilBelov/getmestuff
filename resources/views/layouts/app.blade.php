@@ -13,6 +13,8 @@
         <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#666666">
         <meta name="theme-color" content="#ffffff">
 
+        @yield('seo');
+
         <script src="https://vk.com/js/api/openapi.js?146" type="text/javascript"></script>
         <script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>
         <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

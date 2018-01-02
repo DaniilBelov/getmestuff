@@ -6,6 +6,10 @@
     @section ('title', ' | Вход')
 @endif
 
+@section('seo')
+
+@endsection
+
 @section ('html-class', 'login overflow-visible')
 
 @section ('body-class', 'overflow-visible')

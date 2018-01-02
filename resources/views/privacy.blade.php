@@ -6,6 +6,10 @@
     @section ('title', ' | Политика конфиденциальности')
 @endif
 
+@section('seo')
+
+@endsection
+
 @section ('html-class', 'overflow-visible user-bg terms')
 
 @section ('body-class', 'overflow-visible')

@@ -1,5 +1,9 @@
 @extends ('layouts.app')
 
+@section('seo')
+
+@endsection
+
 @section ('body-class', 'index')
 
 @section ('content')

@@ -6,6 +6,10 @@
     @section ('title', ' | О нас')
 @endif
 
+@section('seo')
+
+@endsection
+
 @section ('html-class', 'about')
 
 @section ('body-class', 'overflow-scroll')
