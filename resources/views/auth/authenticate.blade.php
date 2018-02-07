@@ -1,9 +1,13 @@
 @extends ('layouts.app')
 
-@if ($lang == 'en')
-    @section ('title', ' | Authenticate')
+@if ($lang == 'en' && request()->segment(2) == 'login')
+    @section ('title', ' | Login')
+@elseif ($lang == 'en' && request()->segment(2) == 'register')
+    @section ('title', ' | Register')
+@elseif ($lang == 'ru' && request()->segment(2) == 'login')
+    @section ('title', ' | Войти')
 @else
-    @section ('title', ' | Вход')
+    @section ('title', ' | Регистрация')
 @endif
 
 @section('seo')

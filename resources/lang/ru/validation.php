@@ -30,7 +30,7 @@ return [
         'array'   => 'Объект :attribute должен содержать :min - :max значений.',
     ],
     'boolean'              => 'Значение поля :attribute может быть только либо "истина" либо "ложь".',
-    'confirmed'            => 'Значение проверочного поля :attribute confirmation does not match.',
+    'confirmed'            => 'Значение проверочного поля :attribute не совпсдает.',
     'date'                 => 'Значение поля :attribute должно быть датой.',
     'date_format'          => 'Значение поля :attribute не соответствует формату: :format.',
     'different'            => 'Поля :attribute и :other должны иметь разные значения.',

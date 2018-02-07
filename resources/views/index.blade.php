@@ -1,5 +1,11 @@
 @extends ('layouts.app')
 
+@if ($lang == 'en')
+    @section ('title', ' - Best Crowdfunding Website')
+@else
+    @section ('title', ' - Лучший сайт для помощи')
+@endif
+
 @section('seo')
 
 @endsection
